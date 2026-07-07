@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bootcamp Saya — Codeverse</title>
+  <meta name="description" content="Kelola pendaftaran bootcamp intensif komunitas yang kamu ikuti di Codeverse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>
+    if (!localStorage.getItem('codeverse_session')) {
+      location.replace('signup.html');
+    }
+  </script>
+</head>
+<body class="bg-white font-sans text-gray-900 antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-white">
+    Lompat ke konten utama
+  </a>
+
+  <div class="flex h-8 items-center justify-center bg-navy px-4 text-center text-xs text-primary">
+    <p>⚡ Kelas Dasar Literasi Digital <strong>Gratis</strong> Bulan Ini — Ajak Temanmu! ⚡</p>
+  </div>
+
+  <header class="sticky top-0 z-40 border-b border-gray-100 bg-white">
+    <nav class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 sm:px-6" aria-label="Navigasi utama">
+      <a href="../index.html" class="flex shrink-0 items-center gap-2" aria-label="Codeverse — kembali ke beranda">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-lg font-bold text-navy" aria-hidden="true">C</span>
+        <span class="text-lg font-bold text-gray-900">codeverse</span>
+      </a>
+      <div class="hidden items-center gap-6 lg:flex">
+        <a href="../index.html#kelas-populer" class="text-sm text-gray-900 hover:text-primary-hover">Kelas</a>
+        <a href="../index.html#jalur-belajar" class="text-sm text-gray-900 hover:text-primary-hover">Jalur Belajar</a>
+        <a href="../index.html#tentang" class="text-sm text-gray-900 hover:text-primary-hover">Tentang Kami</a>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-3">
+        <span id="navbar-user-initial" class="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-sm font-semibold text-white" aria-hidden="true">U</span>
+        <span id="navbar-user-name" class="hidden text-sm font-semibold text-gray-900 sm:inline">Pengguna</span>
+        <button id="logout-btn" type="button" class="rounded-lg border-[1.5px] border-navy px-2.5 py-2 text-xs font-semibold text-navy transition hover:bg-navy hover:text-white sm:px-3">Keluar</button>
+        <button id="nav-toggle" type="button" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-gray-100 lg:hidden"
+          aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-gray-100 px-4 pb-4 lg:hidden">
+      <nav class="mt-3 flex flex-col gap-3 text-sm" aria-label="Navigasi mobile">
+        <a href="../index.html#kelas-populer" class="py-1 text-gray-900">Kelas</a>
+        <a href="../index.html#jalur-belajar" class="py-1 text-gray-900">Jalur Belajar</a>
+        <a href="../index.html#tentang" class="py-1 text-gray-900">Tentang Kami</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="mx-auto max-w-[1280px] px-4 py-8 sm:px-6">
+    <div class="flex flex-col gap-6 lg:flex-row">
+      <aside class="w-full shrink-0 lg:w-[220px]">
+        <div class="rounded-xl border border-gray-100 p-5">
+          <div class="flex items-center gap-3">
+            <span id="sidebar-user-initial" class="flex h-12 w-12 items-center justify-center rounded-full bg-navy text-base font-semibold text-white" aria-hidden="true">U</span>
+            <div>
+              <p id="sidebar-user-name" class="text-sm font-bold text-gray-900">Pengguna</p>
+              <span class="mt-1 inline-block rounded-full bg-primary-tint px-2 py-0.5 text-[11px] font-semibold text-primary-hover">Level 1</span>
+            </div>
+          </div>
+          <nav class="mt-6 flex flex-row gap-1 overflow-x-auto lg:flex-col lg:overflow-visible" aria-label="Menu akun">
+            <a href="dashboard.html" class="flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-50"><span aria-hidden="true">📊</span> Dashboard</a>
+            <a href="courses.html" class="flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-50"><span aria-hidden="true">📚</span> Courses</a>
+            <a href="bootcamps.html" class="flex shrink-0 items-center gap-2 rounded-lg bg-primary-tint px-3 py-2 text-sm font-semibold text-primary-hover" aria-current="page"><span aria-hidden="true">🚀</span> Bootcamps</a>
+            <a href="certificates.html" class="flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-50"><span aria-hidden="true">🏅</span> Certificates</a>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="min-w-0 flex-1 space-y-6">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Bootcamp Saya</h1>
+          <p class="mt-1 text-sm text-gray-600">Bootcamp intensif yang sudah kamu daftar dan yang tersedia untuk diikuti.</p>
+        </div>
+
+        <section aria-labelledby="terdaftar-heading">
+          <h2 id="terdaftar-heading" class="text-base font-bold text-gray-900">Bootcamp Terdaftar</h2>
+          <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="flex flex-col overflow-hidden rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+              <div class="flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light"><span class="text-3xl" aria-hidden="true">📅</span></div>
+              <div class="flex flex-1 flex-col gap-2 p-4">
+                <span class="w-fit rounded-full bg-navy px-2.5 py-1 text-[11px] font-semibold text-white">Online Camp</span>
+                <h3 class="text-sm font-bold text-gray-900">Bootcamp Pemasaran Digital UMKM</h3>
+                <p class="text-xs text-gray-600">📅 Mulai 3 Agustus 2026 · 👤 25 peserta/kelompok</p>
+                <div><div class="flex justify-between text-xs text-gray-600"><span>Progres</span><span>10%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100"><div class="h-1.5 w-[10%] rounded-full bg-primary"></div></div></div>
+                <a href="bootcamp-detail.html?id=bootcamp-pemasaran-umkm" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Buka Bootcamp</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section aria-labelledby="tersedia-heading">
+          <h2 id="tersedia-heading" class="text-base font-bold text-gray-900">Bootcamp Tersedia</h2>
+          <div class="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="flex flex-col overflow-hidden rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+              <div class="flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light"><span class="text-3xl" aria-hidden="true">📅</span></div>
+              <div class="flex flex-1 flex-col gap-2 p-4">
+                <span class="w-fit rounded-full bg-navy px-2.5 py-1 text-[11px] font-semibold text-white">Online Camp</span>
+                <h3 class="text-sm font-bold text-gray-900">Bootcamp Literasi Digital 2 Minggu</h3>
+                <p class="text-xs text-gray-600">📅 Mulai 20 Juli 2026 · 👤 30 peserta/kelompok</p>
+                <a href="bootcamp-detail.html?id=bootcamp-literasi-digital" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Daftar Bootcamp</a>
+              </div>
+            </article>
+            <article class="flex flex-col overflow-hidden rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+              <div class="flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light"><span class="text-3xl" aria-hidden="true">📅</span></div>
+              <div class="flex flex-1 flex-col gap-2 p-4">
+                <span class="w-fit rounded-full bg-navy px-2.5 py-1 text-[11px] font-semibold text-white">Online Camp</span>
+                <h3 class="text-sm font-bold text-gray-900">Bootcamp Web Developer Pemula</h3>
+                <p class="text-xs text-gray-600">📅 Mulai 17 Agustus 2026 · 👤 20 peserta/kelompok</p>
+                <a href="bootcamp-detail.html?id=bootcamp-web-developer" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Daftar Bootcamp</a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-navy text-white">
+    <div class="mx-auto grid max-w-[1280px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
+      <div>
+        <a href="../index.html" class="flex items-center gap-2" aria-label="Codeverse — kembali ke beranda">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-lg font-bold text-navy" aria-hidden="true">C</span>
+          <span class="text-lg font-bold text-white">codeverse</span>
+        </a>
+        <p class="mt-3 max-w-xs text-sm text-gray-400">Platform belajar digital untuk komunitas — kelas, jalur belajar, bootcamp, dan sertifikat.</p>
+      </div>
+      <nav aria-label="Navigasi footer">
+        <h3 class="text-sm font-semibold text-white">Navigasi</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="../index.html" class="hover:text-white">Beranda</a></li>
+          <li><a href="../index.html#kelas-populer" class="hover:text-white">Kelas</a></li>
+          <li><a href="../index.html#bootcamp" class="hover:text-white">Bootcamp</a></li>
+          <li><a href="../index.html#jalur-belajar" class="hover:text-white">Jalur Belajar</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Navigasi akun">
+        <h3 class="text-sm font-semibold text-white">Akun</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="dashboard.html" class="hover:text-white">Dashboard</a></li>
+          <li><a href="certificates.html" class="hover:text-white">Sertifikat</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3 class="text-sm font-semibold text-white">Ngobrol Yuk</h3>
+        <p class="mt-3 text-sm text-gray-400">hello@codeverse.id</p>
+        <p class="text-sm text-gray-400">+62 812-3456-7890</p>
+      </div>
+    </div>
+    <div class="border-t border-navy-border bg-navy-deep">
+      <div class="mx-auto flex max-w-[1280px] flex-col gap-2 px-4 py-4 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>&copy; 2026 Codeverse. Seluruh Hak Cipta Dilindungi.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fixed right-0 top-1/2 z-40 flex -translate-y-1/2 flex-col" aria-label="Aksi cepat">
+    <button id="btn-forum" type="button" class="rounded-l-lg bg-primary px-3 py-3 text-left text-xs font-semibold text-navy shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:bg-primary-hover">💬<span class="ml-1 hidden sm:inline">Discussion Forum</span></button>
+    <button id="btn-service" type="button" class="rounded-l-lg bg-primary px-3 py-3 text-left text-xs font-semibold text-navy shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:bg-primary-hover" aria-expanded="false" aria-controls="cs-widget">🔧<span class="ml-1 hidden sm:inline">Our Service</span></button>
+  </div>
+
+  <p id="toast" class="fixed bottom-6 left-1/2 z-50 hidden -translate-x-1/2 rounded-lg bg-navy px-4 py-2 text-sm text-white shadow-[0_8px_32px_rgba(0,0,0,0.16)]" role="status" aria-live="polite"></p>
+
+  <div id="cs-widget" class="fixed bottom-6 right-6 z-50 hidden w-[320px] max-w-[calc(100vw-2rem)] rounded-2xl bg-white shadow-[0_8px_32px_rgba(0,0,0,0.16)]">
+    <div class="flex items-center justify-between border-b border-gray-100 px-4 py-3">
+      <p class="text-sm font-bold text-gray-900">Customer Service</p>
+      <div class="flex items-center gap-2">
+        <button id="cs-clear" type="button" class="text-gray-600 hover:text-danger" aria-label="Hapus percakapan">🗑️</button>
+        <button id="cs-close" type="button" class="text-gray-600 hover:text-gray-900" aria-label="Tutup widget">✕</button>
+      </div>
+    </div>
+    <div class="max-h-72 space-y-3 overflow-y-auto px-4 py-3">
+      <div class="flex items-start gap-2">
+        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm" aria-hidden="true">🤖</span>
+        <p class="rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-900">Halo! Selamat datang di Bantuan Codeverse. Pilih salah satu pertanyaan populer di bawah, atau ketik pertanyaanmu sendiri.</p>
+      </div>
+      <div id="cs-messages" class="space-y-3" aria-live="polite"></div>
+    </div>
+    <div class="border-t border-gray-100 px-4 py-3">
+      <p class="text-xs font-semibold text-gray-900">Pertanyaan yang Sering Diajukan:</p>
+      <div class="mt-2 space-y-2">
+        <button type="button" class="cs-faq w-full rounded-lg border border-gray-100 px-3 py-2 text-left text-xs text-gray-900 hover:border-primary" data-answer="Ya! Semua kelas yang sudah kamu daftar bisa diakses seumur hidup melalui akun Codeverse-mu.">Apakah kelasnya bisa diakses seumur hidup?</button>
+        <button type="button" class="cs-faq w-full rounded-lg border border-gray-100 px-3 py-2 text-left text-xs text-gray-900 hover:border-primary" data-answer="Sertifikat otomatis terbit begitu kamu menyelesaikan seluruh materi & kuis di kelas tersebut, biasanya kurang dari 5 menit.">Berapa lama proses penerbitan sertifikat?</button>
+        <button type="button" class="cs-faq w-full rounded-lg border border-gray-100 px-3 py-2 text-left text-xs text-gray-900 hover:border-primary" data-answer="Bisa. Materi video dan modul bisa diunduh untuk ditonton/dibaca secara offline lewat aplikasi Codeverse.">Bisakah saya download materinya?</button>
+      </div>
+      <form id="cs-form" class="mt-3 flex items-center gap-2">
+        <label for="cs-input" class="sr-only">Tulis pertanyaanmu</label>
+        <input id="cs-input" type="text" placeholder="Tulis pertanyaanmu di sini..." class="h-10 flex-1 rounded-lg border border-gray-100 px-3 text-xs text-gray-900 placeholder-gray-400 focus:border-[1.5px] focus:border-primary focus:outline-none" />
+        <button type="submit" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-navy hover:bg-primary-hover" aria-label="Kirim pertanyaan">➤</button>
+      </form>
+      <p class="mt-2 text-[11px] text-gray-400">Mohon jangan masukkan informasi rahasia/pribadi apa pun.</p>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

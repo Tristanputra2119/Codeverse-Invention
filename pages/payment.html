@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Pembayaran — Codeverse</title>
+  <meta name="description" content="Selesaikan pendaftaran bootcamp pilihanmu di Codeverse." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>
+    if (!localStorage.getItem('codeverse_session')) {
+      location.replace('signup.html');
+    }
+  </script>
+</head>
+<body class="bg-white font-sans text-gray-900 antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-white">
+    Lompat ke konten utama
+  </a>
+
+  <!-- Header minimal: tanpa Announcement Bar & search -->
+  <header class="border-b border-gray-100">
+    <nav class="mx-auto flex max-w-[1280px] items-center justify-between px-4 py-4 sm:px-6" aria-label="Navigasi pembayaran">
+      <a href="../index.html" class="flex items-center gap-2" aria-label="Codeverse — kembali ke beranda">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-lg font-bold text-navy" aria-hidden="true">C</span>
+        <span class="text-lg font-bold text-gray-900">codeverse</span>
+      </a>
+      <a href="bootcamps.html" class="text-sm font-semibold text-gray-600 hover:text-navy">← Kembali</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="mx-auto max-w-[1280px] px-4 py-8 sm:px-6">
+    <h1 class="text-2xl font-bold text-gray-900">Selesaikan Pendaftaran</h1>
+    <p class="mt-1 text-sm text-gray-600">Isi data di bawah untuk mengamankan slot bootcamp-mu.</p>
+
+    <div class="mt-6 flex flex-col gap-8 lg:flex-row">
+      <!-- Kolom Form (60%) -->
+      <form id="payment-form" class="min-w-0 space-y-6 lg:w-3/5">
+        <div class="rounded-xl border border-gray-100 p-5">
+          <h2 class="text-sm font-bold text-gray-900">Data Peserta</h2>
+          <div class="mt-4 space-y-4">
+            <div>
+              <label for="pay-nama" class="mb-1.5 block text-sm font-semibold text-gray-900">Nama Lengkap <span class="text-danger">*</span></label>
+              <input id="pay-nama" type="text" required class="h-11 w-full rounded-lg border border-gray-100 px-3.5 text-sm focus:border-[1.5px] focus:border-primary focus:outline-none" placeholder="Nama sesuai identitas" />
+            </div>
+            <div>
+              <label for="pay-email" class="mb-1.5 block text-sm font-semibold text-gray-900">Email <span class="text-danger">*</span></label>
+              <input id="pay-email" type="email" required class="h-11 w-full rounded-lg border border-gray-100 px-3.5 text-sm focus:border-[1.5px] focus:border-primary focus:outline-none" placeholder="nama@email.com" />
+            </div>
+            <div>
+              <label for="pay-hp" class="mb-1.5 block text-sm font-semibold text-gray-900">Nomor HP <span class="text-danger">*</span></label>
+              <input id="pay-hp" type="tel" required class="h-11 w-full rounded-lg border border-gray-100 px-3.5 text-sm focus:border-[1.5px] focus:border-primary focus:outline-none" placeholder="08xxxxxxxxxx" />
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-xl border border-gray-100 p-5">
+          <h2 class="text-sm font-bold text-gray-900">Metode Pembayaran</h2>
+          <div class="mt-4 space-y-2" role="radiogroup" aria-label="Pilih metode pembayaran">
+            <label class="flex items-center gap-3 rounded-lg border border-gray-100 px-4 py-3 text-sm has-[:checked]:border-[1.5px] has-[:checked]:border-primary">
+              <input type="radio" name="metode" value="transfer" checked class="h-4 w-4 text-primary focus:ring-primary" />
+              Transfer Bank
+            </label>
+            <label class="flex items-center gap-3 rounded-lg border border-gray-100 px-4 py-3 text-sm has-[:checked]:border-[1.5px] has-[:checked]:border-primary">
+              <input type="radio" name="metode" value="ewallet" class="h-4 w-4 text-primary focus:ring-primary" />
+              E-Wallet (OVO/DANA/GoPay)
+            </label>
+            <label class="flex items-center gap-3 rounded-lg border border-gray-100 px-4 py-3 text-sm has-[:checked]:border-[1.5px] has-[:checked]:border-primary">
+              <input type="radio" name="metode" value="kartu" class="h-4 w-4 text-primary focus:ring-primary" />
+              Kartu Kredit/Debit
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full rounded-lg bg-primary py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover lg:hidden">Bayar Sekarang</button>
+      </form>
+
+      <!-- Ringkasan Pesanan (40%) -->
+      <aside class="lg:w-2/5">
+        <div class="sticky top-8 rounded-xl border border-gray-100 p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+          <h2 class="text-sm font-bold text-gray-900">Ringkasan Pesanan</h2>
+          <div class="mt-4 flex items-center gap-3 border-b border-gray-100 pb-4">
+            <div class="flex h-14 w-20 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-navy to-navy-light">
+              <span id="order-icon" class="text-xl" aria-hidden="true">📅</span>
+            </div>
+            <div>
+              <p id="order-title" class="text-sm font-semibold text-gray-900">Bootcamp</p>
+              <p id="order-startdate" class="text-xs text-gray-600"></p>
+            </div>
+          </div>
+          <div class="mt-4 space-y-2 border-b border-gray-100 pb-4 text-sm">
+            <div class="flex justify-between text-gray-600"><span>Harga Normal</span><span id="order-original-price" class="text-danger line-through"></span></div>
+            <div class="flex justify-between text-gray-600"><span>Diskon Komunitas</span><span id="order-discount"></span></div>
+          </div>
+          <div class="mt-4 flex justify-between text-base font-bold text-gray-900">
+            <span>Total</span><span id="order-total"></span>
+          </div>
+          <button type="submit" form="payment-form" class="mt-5 hidden w-full rounded-lg bg-primary py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover lg:block">Bayar Sekarang</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Modal Thank You -->
+  <div id="thank-you-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4" role="dialog" aria-modal="true" aria-labelledby="thank-you-heading">
+    <div class="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-[0_8px_32px_rgba(0,0,0,0.16)] sm:p-10">
+      <span class="text-5xl" aria-hidden="true">🎉</span>
+      <h2 id="thank-you-heading" class="mt-4 text-xl font-bold text-gray-900">Terima Kasih! Pembayaran Berhasil</h2>
+      <p class="mt-2 text-sm text-gray-600">Pendaftaranmu untuk <strong id="modal-order-title">bootcamp ini</strong> sudah kami terima. Detail jadwal akan dikirim ke emailmu.</p>
+      <a href="dashboard.html" class="mt-6 block rounded-lg bg-primary py-3 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Kembali ke Dashboard</a>
+    </div>
+  </div>
+
+  <script src="../js/bootcamps-data.js"></script>
+  <script src="../js/payment.js"></script>
+</body>
+</html>

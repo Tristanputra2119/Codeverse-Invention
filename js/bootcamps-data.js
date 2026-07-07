@@ -1,0 +1,70 @@
+// Data mock katalog bootcamp Codeverse. Dipakai bersama oleh pages/bootcamps.html,
+// pages/bootcamp-detail.html, dan pages/payment.html supaya kontennya konsisten.
+
+const BOOTCAMPS_DATA = {
+  'bootcamp-literasi-digital': {
+    category: 'Online Camp',
+    title: 'Bootcamp Literasi Digital 2 Minggu',
+    icon: '📅',
+    startDate: '20 Juli 2026',
+    duration: '2 minggu',
+    groupSize: '30 peserta/kelompok',
+    price: 149000,
+    originalPrice: 299000,
+    description: 'Pendampingan intensif untuk menguasai dasar literasi digital dalam 2 minggu, belajar berkelompok bersama mentor.',
+    fullDescription: 'Bootcamp ini cocok untuk yang ingin percepatan dibanding kelas mandiri: setiap sesi didampingi mentor secara langsung, ada tugas kelompok, dan sesi tanya-jawab rutin agar kamu tidak belajar sendirian.',
+    schedule: [
+      { title: 'Minggu 1: Perangkat, Internet & Email', duration: 'Sesi langsung 2x/minggu' },
+      { title: 'Minggu 2: Keamanan Digital & Proyek Akhir', duration: 'Sesi langsung 2x/minggu' },
+    ],
+    mentor: { name: 'Kak Fajar', role: 'Fasilitator Literasi Digital Komunitas' },
+    reviews: [
+      { initials: 'RA', name: 'Rina A.', text: 'Belajar bareng kelompok bikin saya nggak gampang menyerah di tengah jalan.' },
+      { initials: 'NA', name: 'Nadia A.', text: 'Mentornya sabar banget jawab pertanyaan dasar sekalipun.' },
+    ],
+  },
+  'bootcamp-pemasaran-umkm': {
+    category: 'Online Camp',
+    title: 'Bootcamp Pemasaran Digital UMKM',
+    icon: '📅',
+    startDate: '3 Agustus 2026',
+    duration: '3 minggu',
+    groupSize: '25 peserta/kelompok',
+    price: 199000,
+    originalPrice: 349000,
+    description: 'Pendampingan praktik langsung menyusun strategi pemasaran digital untuk usahamu, dari konten sampai iklan berbayar.',
+    fullDescription: 'Selama 3 minggu, peserta dibimbing menyusun rencana pemasaran digital untuk produk masing-masing: mulai dari riset target pasar, membuat konten promosi, sampai uji coba iklan berbayar dengan budget kecil.',
+    schedule: [
+      { title: 'Minggu 1: Riset Target Pasar & Kanal Pemasaran', duration: 'Sesi langsung 2x/minggu' },
+      { title: 'Minggu 2: Membuat Konten & Kalender Promosi', duration: 'Sesi langsung 2x/minggu' },
+      { title: 'Minggu 3: Uji Coba Iklan Berbayar & Evaluasi', duration: 'Sesi langsung 2x/minggu' },
+    ],
+    mentor: { name: 'Kak Sarah', role: 'Praktisi Pemasaran Digital UMKM' },
+    reviews: [
+      { initials: 'BS', name: 'Budi S.', text: 'Tugas kelompoknya langsung dipraktikkan ke toko saya, hasilnya kelihatan.' },
+      { initials: 'SW', name: 'Siti W.', text: 'Dapat masukan langsung dari mentor soal konten saya, bukan cuma teori.' },
+    ],
+  },
+  'bootcamp-web-developer': {
+    category: 'Online Camp',
+    title: 'Bootcamp Web Developer Pemula',
+    icon: '📅',
+    startDate: '17 Agustus 2026',
+    duration: '4 minggu',
+    groupSize: '20 peserta/kelompok',
+    price: 249000,
+    originalPrice: 399000,
+    description: 'Pendampingan membangun website dari nol sampai bisa dipakai untuk portofolio melamar kerja di bidang teknologi.',
+    fullDescription: 'Bootcamp 4 minggu ini menuntunmu membangun website portofolio sendiri: mulai dari dasar HTML/CSS/JavaScript, code review bersama mentor, sampai proyek akhir yang siap ditampilkan ke calon perekrut.',
+    schedule: [
+      { title: 'Minggu 1-2: Dasar HTML, CSS & JavaScript', duration: 'Sesi langsung 2x/minggu' },
+      { title: 'Minggu 3: Membangun Proyek Website Portofolio', duration: 'Sesi langsung 2x/minggu' },
+      { title: 'Minggu 4: Code Review & Presentasi Akhir', duration: 'Sesi langsung 2x/minggu' },
+    ],
+    mentor: { name: 'Kak Dimas', role: 'Web Developer & Mentor Komunitas' },
+    reviews: [
+      { initials: 'AF', name: 'Andi F.', text: 'Code review dari mentor bikin saya paham kesalahan sendiri, bukan cuma dikasih jawaban.' },
+      { initials: 'DP', name: 'Dewi P.', text: 'Proyek akhirnya beneran bisa saya taruh di CV melamar kerja.' },
+    ],
+  },
+};

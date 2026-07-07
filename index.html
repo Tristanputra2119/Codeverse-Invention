@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Codeverse — Belajar Digital, Tumbuh Bersama Komunitas</title>
+  <meta name="description" content="Codeverse adalah platform belajar digital untuk komunitas: kelas literasi digital, jalur belajar terstruktur, bootcamp, dan sertifikat yang diakui — untuk pelajar, pencari kerja, dan pelaku UMKM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white font-sans text-gray-900 antialiased">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-white">
+    Lompat ke konten utama
+  </a>
+
+  <!-- Announcement Bar -->
+  <div class="flex h-8 items-center justify-center bg-navy px-4 text-center text-xs text-primary">
+    <p>⚡ Kelas Dasar Literasi Digital <strong>Gratis</strong> Bulan Ini — Gabung Sekarang! ⚡</p>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 border-b border-gray-100 bg-white">
+    <nav class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 sm:px-6" aria-label="Navigasi utama">
+      <a href="index.html" class="flex shrink-0 items-center gap-2" aria-label="Codeverse — kembali ke beranda">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-lg font-bold text-navy" aria-hidden="true">C</span>
+        <span class="text-lg font-bold text-gray-900">codeverse</span>
+      </a>
+
+      <form id="search-form" role="search" class="hidden max-w-md flex-1 items-center md:flex" aria-label="Cari kelas">
+        <label for="search-input" class="sr-only">Cari kelas, topik, atau instruktur</label>
+        <div class="flex w-full items-center rounded-full border border-gray-100 pl-4 pr-1 focus-within:border-primary">
+          <input id="search-input" type="text" placeholder="Cari kelas, topik, atau instruktur..."
+            class="h-9 w-full border-none bg-transparent text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-0" />
+          <button type="submit" class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-navy" aria-label="Cari">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="hidden items-center gap-6 lg:flex">
+        <a href="#kelas-populer" class="text-sm text-gray-900 hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Kelas</a>
+        <a href="#jalur-belajar" class="text-sm text-gray-900 hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Jalur Belajar</a>
+        <a href="#tentang" class="text-sm text-gray-900 hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Tentang Kami</a>
+        <a href="pages/signup.html#masuk" class="text-sm text-gray-900 hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Masuk</a>
+        <a href="pages/signup.html" class="rounded-lg border-[1.5px] border-primary px-4 py-2 text-sm font-semibold text-primary-hover transition hover:bg-primary hover:text-navy focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+          Gabung Sekarang
+        </a>
+      </div>
+
+      <button id="nav-toggle" type="button" class="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-100 lg:hidden"
+        aria-expanded="false" aria-controls="mobile-menu" aria-label="Buka menu navigasi">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-5 w-5" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-gray-100 px-4 pb-4 lg:hidden">
+      <form role="search" class="mt-3 flex items-center md:hidden" aria-label="Cari kelas (mobile)">
+        <label for="search-input-mobile" class="sr-only">Cari kelas, topik, atau instruktur</label>
+        <div class="flex w-full items-center rounded-full border border-gray-100 pl-4 pr-1 focus-within:border-primary">
+          <input id="search-input-mobile" type="text" placeholder="Cari kelas..."
+            class="h-9 w-full border-none bg-transparent text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-0" />
+          <button type="submit" class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-navy" aria-label="Cari">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true">
+              <circle cx="11" cy="11" r="7" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+          </button>
+        </div>
+      </form>
+      <nav class="mt-4 flex flex-col gap-3 text-sm" aria-label="Navigasi mobile">
+        <a href="#kelas-populer" class="py-1 text-gray-900">Kelas</a>
+        <a href="#jalur-belajar" class="py-1 text-gray-900">Jalur Belajar</a>
+        <a href="#tentang" class="py-1 text-gray-900">Tentang Kami</a>
+        <a href="pages/signup.html#masuk" class="py-1 text-gray-900">Masuk</a>
+        <a href="pages/signup.html" class="mt-1 rounded-lg border-[1.5px] border-primary px-4 py-2 text-center font-semibold text-primary-hover">Gabung Sekarang</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero -->
+    <section class="bg-white">
+      <div class="mx-auto grid max-w-[1280px] gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
+        <div>
+          <span class="inline-block rounded-full bg-primary-tint px-3 py-1 text-xs font-semibold text-primary-hover">Platform Belajar Digital Komunitas</span>
+          <h1 class="mt-4 text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-[32px]">
+            Belajar Digital, Tumbuh Bersama Komunitas
+          </h1>
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-gray-600">
+            Codeverse membantu pelajar, pencari kerja, dan pelaku UMKM menguasai keterampilan digital lewat kelas terpandu, jalur belajar terstruktur, dan sertifikat yang diakui — dengan pendampingan komunitas di setiap langkah.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a href="pages/signup.html" class="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy">
+              Gabung Sekarang
+            </a>
+            <a href="#kelas-populer" class="rounded-lg border-[1.5px] border-navy px-6 py-3 text-sm font-semibold text-navy transition hover:bg-navy hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy">
+              Jelajahi Kelas
+            </a>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl bg-navy p-8 sm:p-10" aria-hidden="true">
+          <div class="absolute -right-3 -top-3 h-16 w-16 rounded-full bg-primary/30"></div>
+          <div class="absolute -bottom-4 left-6 h-10 w-10 rounded-full bg-primary/20"></div>
+          <div class="space-y-4 rounded-xl bg-navy-light p-6">
+            <div class="flex items-center justify-between text-white">
+              <span class="text-sm font-semibold">Literasi Digital Dasar</span>
+              <span class="text-xs text-gray-400">100%</span>
+            </div>
+            <div class="h-2 w-full rounded-full bg-navy-border">
+              <div class="h-2 w-full rounded-full bg-primary"></div>
+            </div>
+            <div class="flex items-center justify-between text-white">
+              <span class="text-sm font-semibold">Dasar Pemasaran Digital</span>
+              <span class="text-xs text-gray-400">60%</span>
+            </div>
+            <div class="h-2 w-full rounded-full bg-navy-border">
+              <div class="h-2 w-3/5 rounded-full bg-primary"></div>
+            </div>
+            <div class="flex items-center justify-between text-white">
+              <span class="text-sm font-semibold">Coding Dasar</span>
+              <span class="text-xs text-gray-400">25%</span>
+            </div>
+            <div class="h-2 w-full rounded-full bg-navy-border">
+              <div class="h-2 w-1/4 rounded-full bg-primary"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats strip -->
+    <section class="bg-navy">
+      <div class="mx-auto grid max-w-[1280px] grid-cols-2 gap-8 px-4 py-10 text-center sm:px-6 md:grid-cols-4">
+        <div>
+          <p class="text-2xl font-bold text-primary sm:text-3xl">12.500+</p>
+          <p class="mt-1 text-xs text-gray-400 sm:text-sm">Peserta Aktif</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-primary sm:text-3xl">80+</p>
+          <p class="mt-1 text-xs text-gray-400 sm:text-sm">Kelas &amp; Bootcamp</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-primary sm:text-3xl">150+</p>
+          <p class="mt-1 text-xs text-gray-400 sm:text-sm">Instruktur Komunitas</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-primary sm:text-3xl">4.800+</p>
+          <p class="mt-1 text-xs text-gray-400 sm:text-sm">Sertifikat Terbit</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kenapa Codeverse -->
+    <section id="tentang" class="bg-gray-50">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 sm:py-20">
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-2xl font-semibold text-gray-900 sm:text-[24px]">Kenapa Belajar di Codeverse?</h2>
+          <p class="mt-3 text-sm text-gray-600 sm:text-base">Dirancang untuk masyarakat yang ingin naik level keterampilan digital tanpa harus punya latar belakang IT.</p>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-xl border border-gray-100 bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-tint text-lg" aria-hidden="true">🎯</span>
+            <h3 class="mt-4 text-base font-semibold text-gray-900">Kurikulum Berbasis Kebutuhan Komunitas</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Materi praktis untuk kebutuhan sehari-hari dan dunia kerja, bukan teori berat.</p>
+          </div>
+          <div class="rounded-xl border border-gray-100 bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-tint text-lg" aria-hidden="true">🤝</span>
+            <h3 class="mt-4 text-base font-semibold text-gray-900">Belajar Bersama, Bukan Sendiri</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Forum diskusi dan pendampingan membantu kamu tetap konsisten belajar.</p>
+          </div>
+          <div class="rounded-xl border border-gray-100 bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-tint text-lg" aria-hidden="true">📶</span>
+            <h3 class="mt-4 text-base font-semibold text-gray-900">Akses Fleksibel &amp; Terjangkau</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Kelas dasar gratis, materi bisa diakses kapan saja lewat perangkat apa pun.</p>
+          </div>
+          <div class="rounded-xl border border-gray-100 bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-tint text-lg" aria-hidden="true">🏅</span>
+            <h3 class="mt-4 text-base font-semibold text-gray-900">Sertifikat yang Diakui</h3>
+            <p class="mt-2 text-sm leading-relaxed text-gray-600">Bukti kompetensi digital yang bisa dilampirkan ke lamaran kerja atau portofolio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kelas Populer -->
+    <section id="kelas-populer" class="bg-white">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 sm:py-20">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <h2 class="text-2xl font-semibold text-gray-900 sm:text-[24px]">Kelas Populer</h2>
+            <p class="mt-2 text-sm text-gray-600">Pilih kelas sesuai kebutuhanmu, mulai dari dasar hingga siap kerja.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap gap-2 border-b border-gray-100 pb-4" role="group" aria-label="Filter kategori kelas">
+          <button type="button" data-filter="semua" class="filter-btn rounded-full border border-navy bg-navy px-4 py-2 text-xs font-semibold text-white" aria-pressed="true">Semua</button>
+          <button type="button" data-filter="literasi" class="filter-btn rounded-full border border-gray-100 px-4 py-2 text-xs font-semibold text-gray-600" aria-pressed="false">Literasi Digital Dasar</button>
+          <button type="button" data-filter="produktivitas" class="filter-btn rounded-full border border-gray-100 px-4 py-2 text-xs font-semibold text-gray-600" aria-pressed="false">Produktivitas &amp; Perkantoran</button>
+          <button type="button" data-filter="pemasaran" class="filter-btn rounded-full border border-gray-100 px-4 py-2 text-xs font-semibold text-gray-600" aria-pressed="false">Pemasaran Digital</button>
+          <button type="button" data-filter="coding" class="filter-btn rounded-full border border-gray-100 px-4 py-2 text-xs font-semibold text-gray-600" aria-pressed="false">Coding Dasar</button>
+        </div>
+
+        <div id="course-grid" class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article data-category="literasi" class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="relative flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">💻</span>
+              <span class="absolute left-3 top-3 rounded-full bg-navy-deep/70 px-2 py-1 text-[11px] text-white">Literasi Digital</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Literasi Digital Dasar</p>
+              <h3 class="text-sm font-bold text-gray-900">Literasi Digital untuk Pemula</h3>
+              <p class="flex flex-wrap gap-3 text-xs text-gray-600">
+                <span>⏱ 4 jam</span><span>👤 3.200 peserta</span><span>🎬 18 video</span>
+              </p>
+              <a href="pages/course-detail.html?id=literasi-digital-pemula" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lihat Kelas</a>
+            </div>
+          </article>
+
+          <article data-category="produktivitas" class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="relative flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">📊</span>
+              <span class="absolute left-3 top-3 rounded-full bg-navy-deep/70 px-2 py-1 text-[11px] text-white">Produktivitas</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Produktivitas &amp; Perkantoran</p>
+              <h3 class="text-sm font-bold text-gray-900">Microsoft Office untuk Produktivitas Kerja</h3>
+              <p class="flex flex-wrap gap-3 text-xs text-gray-600">
+                <span>⏱ 6 jam</span><span>👤 2.750 peserta</span><span>🎬 24 video</span>
+              </p>
+              <a href="pages/course-detail.html?id=office-produktivitas-kerja" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lihat Kelas</a>
+            </div>
+          </article>
+
+          <article data-category="pemasaran" class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="relative flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">📱</span>
+              <span class="absolute left-3 top-3 rounded-full bg-navy-deep/70 px-2 py-1 text-[11px] text-white">Pemasaran Digital</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Pemasaran Digital</p>
+              <h3 class="text-sm font-bold text-gray-900">Dasar Pemasaran Digital untuk UMKM</h3>
+              <p class="flex flex-wrap gap-3 text-xs text-gray-600">
+                <span>⏱ 5 jam</span><span>👤 4.100 peserta</span><span>🎬 20 video</span>
+              </p>
+              <a href="pages/course-detail.html?id=pemasaran-digital-umkm" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lihat Kelas</a>
+            </div>
+          </article>
+
+          <article data-category="coding" class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="relative flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">🌐</span>
+              <span class="absolute left-3 top-3 rounded-full bg-navy-deep/70 px-2 py-1 text-[11px] text-white">Coding Dasar</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Coding Dasar</p>
+              <h3 class="text-sm font-bold text-gray-900">Membuat Website Pertamamu</h3>
+              <p class="flex flex-wrap gap-3 text-xs text-gray-600">
+                <span>⏱ 8 jam</span><span>👤 1.980 peserta</span><span>🎬 32 video</span>
+              </p>
+              <a href="pages/course-detail.html?id=coding-dasar-website" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lihat Kelas</a>
+            </div>
+          </article>
+
+          <article data-category="literasi" class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="relative flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">🔒</span>
+              <span class="absolute left-3 top-3 rounded-full bg-navy-deep/70 px-2 py-1 text-[11px] text-white">Literasi Digital</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Literasi Digital Dasar</p>
+              <h3 class="text-sm font-bold text-gray-900">Keamanan Data &amp; Privasi di Internet</h3>
+              <p class="flex flex-wrap gap-3 text-xs text-gray-600">
+                <span>⏱ 3 jam</span><span>👤 2.400 peserta</span><span>🎬 14 video</span>
+              </p>
+              <a href="pages/course-detail.html?id=keamanan-data-privasi" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lihat Kelas</a>
+            </div>
+          </article>
+
+          <article data-category="pemasaran" class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="relative flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">🎨</span>
+              <span class="absolute left-3 top-3 rounded-full bg-navy-deep/70 px-2 py-1 text-[11px] text-white">Pemasaran Digital</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Pemasaran Digital</p>
+              <h3 class="text-sm font-bold text-gray-900">Desain Konten dengan Canva</h3>
+              <p class="flex flex-wrap gap-3 text-xs text-gray-600">
+                <span>⏱ 4 jam</span><span>👤 3.600 peserta</span><span>🎬 16 video</span>
+              </p>
+              <a href="pages/course-detail.html?id=desain-konten-canva" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lihat Kelas</a>
+            </div>
+          </article>
+        </div>
+        <p id="course-empty" class="mt-8 hidden text-center text-sm text-gray-600">Belum ada kelas untuk kategori ini.</p>
+      </div>
+    </section>
+
+    <!-- Jalur Belajar -->
+    <section id="jalur-belajar" class="bg-gray-50">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 sm:py-20">
+        <h2 class="text-2xl font-semibold text-gray-900 sm:text-[24px]">Jalur Belajar Terstruktur</h2>
+        <p class="mt-2 max-w-xl text-sm text-gray-600">Ikuti rangkaian kelas yang sudah disusun sesuai tujuanmu, dari nol sampai mahir.</p>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-3">
+          <div class="rounded-xl border border-gray-100 bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <h3 class="text-base font-bold text-gray-900">Jalur Literasi Digital Dasar</h3>
+            <p class="mt-1 text-xs text-gray-600">4 kelas · untuk pemula</p>
+            <div class="mt-4 space-y-3">
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Pengenalan Internet &amp; Perangkat</span><span>100%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100"><div class="h-1.5 w-full rounded-full bg-primary"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Keamanan Data &amp; Privasi</span><span>40%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100"><div class="h-1.5 w-2/5 rounded-full bg-primary"></div></div>
+              </div>
+            </div>
+            <a href="pages/learn-path.html" class="mt-5 block rounded-lg border-[1.5px] border-navy py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-navy hover:text-white">Lanjutkan Jalur</a>
+          </div>
+
+          <div class="rounded-xl border border-gray-100 bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <h3 class="text-base font-bold text-gray-900">Jalur Pemasaran Digital UMKM</h3>
+            <p class="mt-1 text-xs text-gray-600">5 kelas · untuk pelaku usaha</p>
+            <div class="mt-4 space-y-3">
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Dasar Pemasaran Digital</span><span>60%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100"><div class="h-1.5 w-3/5 rounded-full bg-primary"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Desain Konten dengan Canva</span><span>0%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100"><div class="h-1.5 w-0 rounded-full bg-primary"></div></div>
+              </div>
+            </div>
+            <a href="pages/learn-path.html" class="mt-5 block rounded-lg border-[1.5px] border-navy py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-navy hover:text-white">Lanjutkan Jalur</a>
+          </div>
+
+          <div class="rounded-xl border border-gray-100 bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <h3 class="text-base font-bold text-gray-900">Jalur Pengembang Web Pemula</h3>
+            <p class="mt-1 text-xs text-gray-600">6 kelas · untuk pencari kerja</p>
+            <div class="mt-4 space-y-3">
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Membuat Website Pertamamu</span><span>25%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100"><div class="h-1.5 w-1/4 rounded-full bg-primary"></div></div>
+              </div>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Dasar Logika Pemrograman</span><span>0%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100"><div class="h-1.5 w-0 rounded-full bg-primary"></div></div>
+              </div>
+            </div>
+            <a href="pages/learn-path.html" class="mt-5 block rounded-lg border-[1.5px] border-navy py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-navy hover:text-white">Lanjutkan Jalur</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootcamp -->
+    <section id="bootcamp" class="bg-white">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 sm:py-20">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div>
+            <h2 class="text-2xl font-semibold text-gray-900 sm:text-[24px]">Bootcamp Intensif Komunitas</h2>
+            <p class="mt-2 max-w-xl text-sm text-gray-600">Belajar berkelompok dengan pendampingan langsung, cocok untuk yang ingin percepatan.</p>
+          </div>
+          <a href="pages/bootcamps.html" class="text-sm font-semibold text-primary-hover hover:underline">Lihat Semua Bootcamp →</a>
+        </div>
+
+        <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">📅</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <span class="w-fit rounded-full bg-navy px-2.5 py-1 text-[11px] font-semibold text-white">Online Camp</span>
+              <h3 class="text-sm font-bold text-gray-900">Bootcamp Literasi Digital 2 Minggu</h3>
+              <p class="text-xs text-gray-600">📅 Mulai 20 Juli 2026 · 👤 30 peserta/kelompok</p>
+              <a href="pages/bootcamp-detail.html?id=bootcamp-literasi-digital" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Daftar Bootcamp</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">📅</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <span class="w-fit rounded-full bg-navy px-2.5 py-1 text-[11px] font-semibold text-white">Online Camp</span>
+              <h3 class="text-sm font-bold text-gray-900">Bootcamp Pemasaran Digital UMKM</h3>
+              <p class="text-xs text-gray-600">📅 Mulai 3 Agustus 2026 · 👤 25 peserta/kelompok</p>
+              <a href="pages/bootcamp-detail.html?id=bootcamp-pemasaran-umkm" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Daftar Bootcamp</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] transition hover:shadow-[0_4px_16px_rgba(0,0,0,0.12)]">
+            <div class="flex aspect-video items-center justify-center bg-gradient-to-br from-navy to-navy-light">
+              <span class="text-4xl" aria-hidden="true">📅</span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <span class="w-fit rounded-full bg-navy px-2.5 py-1 text-[11px] font-semibold text-white">Online Camp</span>
+              <h3 class="text-sm font-bold text-gray-900">Bootcamp Web Developer Pemula</h3>
+              <p class="text-xs text-gray-600">📅 Mulai 17 Agustus 2026 · 👤 20 peserta/kelompok</p>
+              <a href="pages/bootcamp-detail.html?id=bootcamp-web-developer" class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Daftar Bootcamp</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="bg-gray-50">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-6 sm:py-20">
+        <h2 class="text-2xl font-semibold text-gray-900 sm:text-[24px]">Cerita dari Komunitas Kami</h2>
+
+        <div class="mt-8 grid gap-6 lg:grid-cols-3">
+          <figure class="rounded-xl border border-gray-100 bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-navy text-xs font-semibold text-white" aria-hidden="true">RA</span>
+              <div>
+                <figcaption class="text-sm font-semibold text-gray-900">Rina A.</figcaption>
+                <p class="text-xs text-gray-600">Pencari Kerja</p>
+              </div>
+            </div>
+            <p class="mt-3 text-primary" aria-label="Rating 5 dari 5 bintang">★★★★★</p>
+            <blockquote class="mt-2 text-sm leading-relaxed text-gray-600">"Kelas Literasi Digital Dasar bikin saya percaya diri ikut wawancara kerja yang butuh Ms. Office dan email profesional."</blockquote>
+          </figure>
+
+          <figure class="rounded-xl border border-gray-100 bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-navy text-xs font-semibold text-white" aria-hidden="true">BS</span>
+              <div>
+                <figcaption class="text-sm font-semibold text-gray-900">Budi S.</figcaption>
+                <p class="text-xs text-gray-600">Pemilik Warung Online</p>
+              </div>
+            </div>
+            <p class="mt-3 text-primary" aria-label="Rating 5 dari 5 bintang">★★★★★</p>
+            <blockquote class="mt-2 text-sm leading-relaxed text-gray-600">"Jalur Pemasaran Digital UMKM langsung bisa dipraktikkan ke toko online saya. Penjualan naik dalam sebulan."</blockquote>
+          </figure>
+
+          <figure class="rounded-xl border border-gray-100 bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-navy text-xs font-semibold text-white" aria-hidden="true">DP</span>
+              <div>
+                <figcaption class="text-sm font-semibold text-gray-900">Dewi P.</figcaption>
+                <p class="text-xs text-gray-600">Mahasiswa</p>
+              </div>
+            </div>
+            <p class="mt-3 text-primary" aria-label="Rating 5 dari 5 bintang">★★★★★</p>
+            <blockquote class="mt-2 text-sm leading-relaxed text-gray-600">"Forum diskusinya aktif, jadi walau belajar online saya tetap dibantu teman satu jalur belajar."</blockquote>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sertifikat -->
+    <section id="sertifikat" class="bg-white">
+      <div class="mx-auto grid max-w-[1280px] gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:items-center">
+        <div>
+          <h2 class="text-2xl font-semibold text-gray-900 sm:text-[24px]">Sertifikat yang Diakui</h2>
+          <p class="mt-3 text-sm leading-relaxed text-gray-600 sm:text-base">Setiap kelas dan jalur belajar yang selesai menghasilkan sertifikat digital yang bisa dilampirkan ke lamaran kerja, portofolio, atau profil LinkedIn.</p>
+          <ul class="mt-5 space-y-3 text-sm text-gray-600">
+            <li class="flex items-start gap-2"><span class="text-primary-hover" aria-hidden="true">✓</span> Terverifikasi dengan kode unik</li>
+            <li class="flex items-start gap-2"><span class="text-primary-hover" aria-hidden="true">✓</span> Bisa diunduh dalam format PDF</li>
+            <li class="flex items-start gap-2"><span class="text-primary-hover" aria-hidden="true">✓</span> Tercatat di riwayat sertifikat akunmu</li>
+          </ul>
+          <a href="pages/certificates.html" class="mt-6 inline-block rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover">Pelajari Sertifikasi</a>
+        </div>
+        <div class="rounded-2xl border border-gray-100 bg-white p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+          <div class="flex items-center justify-between">
+            <span class="text-2xl text-primary" aria-hidden="true">🌟</span>
+            <span class="rounded-full bg-primary-tint px-2.5 py-1 text-[11px] font-semibold text-primary-hover">Sertifikat Resmi</span>
+          </div>
+          <p class="mt-4 text-xs text-gray-600">Diberikan kepada</p>
+          <p class="text-lg font-bold text-gray-900">Nama Peserta</p>
+          <p class="mt-2 text-sm text-gray-600">atas kelulusan kelas</p>
+          <p class="text-base font-semibold text-gray-900">Literasi Digital untuk Pemula</p>
+          <p class="mt-4 text-xs text-gray-400">Kode Verifikasi: CV-2026-000123</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="relative overflow-hidden bg-navy">
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div class="absolute -left-6 -top-6 h-24 w-24 rounded-full bg-primary/10"></div>
+        <div class="absolute bottom-0 right-10 h-32 w-32 rounded-full bg-primary/10"></div>
+      </div>
+      <div class="relative mx-auto max-w-[1280px] px-4 py-16 text-center sm:px-6 sm:py-20">
+        <h2 class="text-3xl font-bold text-white sm:text-4xl">Mulai Langkah Digital Pertamamu Sekarang!</h2>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-gray-400 sm:text-base">Gratis untuk kelas dasar. Tidak perlu pengalaman teknis sebelumnya.</p>
+        <a href="pages/signup.html" class="mt-8 inline-block rounded-lg border-[1.5px] border-white px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-navy">
+          Gabung Sekarang Gratis
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-navy text-white">
+    <div class="mx-auto grid max-w-[1280px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
+      <div>
+        <a href="index.html" class="flex items-center gap-2" aria-label="Codeverse — kembali ke beranda">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-lg font-bold text-navy" aria-hidden="true">C</span>
+          <span class="text-lg font-bold text-white">codeverse</span>
+        </a>
+        <p class="mt-3 max-w-xs text-sm text-gray-400">Platform belajar digital untuk komunitas — kelas, jalur belajar, bootcamp, dan sertifikat.</p>
+        <div class="mt-4 flex gap-3">
+          <a href="#" aria-label="Facebook Codeverse" class="flex h-8 w-8 items-center justify-center rounded-full border border-navy-border text-xs hover:bg-navy-light">FB</a>
+          <a href="#" aria-label="Instagram Codeverse" class="flex h-8 w-8 items-center justify-center rounded-full border border-navy-border text-xs hover:bg-navy-light">IG</a>
+          <a href="#" aria-label="Twitter/X Codeverse" class="flex h-8 w-8 items-center justify-center rounded-full border border-navy-border text-xs hover:bg-navy-light">X</a>
+          <a href="#" aria-label="TikTok Codeverse" class="flex h-8 w-8 items-center justify-center rounded-full border border-navy-border text-xs hover:bg-navy-light">TT</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navigasi footer">
+        <h3 class="text-sm font-semibold text-white">Navigasi</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="index.html" class="hover:text-white">Beranda</a></li>
+          <li><a href="#kelas-populer" class="hover:text-white">Kelas</a></li>
+          <li><a href="#bootcamp" class="hover:text-white">Bootcamp</a></li>
+          <li><a href="#jalur-belajar" class="hover:text-white">Jalur Belajar</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Navigasi lainnya">
+        <h3 class="text-sm font-semibold text-white">Lainnya</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="#kelas-populer" class="hover:text-white">Populer</a></li>
+          <li><a href="#" class="hover:text-white">Promo</a></li>
+          <li><a href="#testimoni" class="hover:text-white">Testimoni</a></li>
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#sertifikat" class="hover:text-white">Sertifikat</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Ngobrol Yuk</h3>
+        <div class="mt-3 flex items-center gap-2">
+          <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-sm font-bold text-navy" aria-hidden="true">C</span>
+          <p class="text-sm text-gray-400">Hai, aku ingin tau lebih!</p>
+        </div>
+        <p class="mt-3 text-sm text-gray-400">hello@codeverse.id</p>
+        <p class="text-sm text-gray-400">+62 812-3456-7890</p>
+      </div>
+    </div>
+
+    <div class="border-t border-navy-border bg-navy-deep">
+      <div class="mx-auto flex max-w-[1280px] flex-col gap-2 px-4 py-4 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>&copy; 2026 Codeverse. Seluruh Hak Cipta Dilindungi.</p>
+        <p class="flex flex-wrap gap-x-3">
+          <a href="#" class="hover:text-white">Panduan</a>
+          <a href="#" class="hover:text-white">Ketentuan Penjualan</a>
+          <a href="#" class="hover:text-white">Ketentuan Penggunaan</a>
+          <a href="#" class="hover:text-white">Kebijakan Privasi</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

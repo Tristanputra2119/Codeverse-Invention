@@ -1,0 +1,6 @@
+# Instruksi & config internal Claude Code — jangan ikut dipush
+.claude/
+
+# OS junk files
+.DS_Store
+Thumbs.db
