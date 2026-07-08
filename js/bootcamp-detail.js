@@ -23,7 +23,8 @@ function formatRupiah(amount) {
   document.getElementById('bootcamp-startdate').textContent = `Mulai ${bootcamp.startDate}`;
   document.getElementById('bootcamp-duration').textContent = bootcamp.duration;
   document.getElementById('bootcamp-groupsize').textContent = bootcamp.groupSize;
-  document.getElementById('bootcamp-icon').textContent = bootcamp.icon;
+  document.getElementById('bootcamp-icon').src = bootcamp.image;
+  document.getElementById('bootcamp-icon').alt = bootcamp.title;
   document.getElementById('bootcamp-full-description').textContent = bootcamp.fullDescription;
   document.getElementById('bootcamp-price').textContent = formatRupiah(bootcamp.price);
   document.getElementById('bootcamp-original-price').textContent = formatRupiah(bootcamp.originalPrice);

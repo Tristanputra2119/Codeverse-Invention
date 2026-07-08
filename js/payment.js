@@ -15,7 +15,8 @@ function formatRupiah(amount) {
   if (!bootcamp) return;
 
   document.title = `Pembayaran ${bootcamp.title} — Codeverse`;
-  document.getElementById('order-icon').textContent = bootcamp.icon;
+  document.getElementById('order-icon').src = bootcamp.image;
+  document.getElementById('order-icon').alt = bootcamp.title;
   document.getElementById('order-title').textContent = bootcamp.title;
   document.getElementById('order-startdate').textContent = `Mulai ${bootcamp.startDate}`;
   document.getElementById('order-original-price').textContent = formatRupiah(bootcamp.originalPrice);

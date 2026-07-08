@@ -5,7 +5,7 @@ const BOOTCAMPS_DATA = {
   'bootcamp-literasi-digital': {
     category: 'Online Camp',
     title: 'Bootcamp Literasi Digital 2 Minggu',
-    icon: '📅',
+    image: 'https://images.unsplash.com/photo-1758270705290-62b6294dd044?auto=format&fit=crop&w=1200&q=80',
     startDate: '20 Juli 2026',
     duration: '2 minggu',
     groupSize: '30 peserta/kelompok',
@@ -26,7 +26,7 @@ const BOOTCAMPS_DATA = {
   'bootcamp-pemasaran-umkm': {
     category: 'Online Camp',
     title: 'Bootcamp Pemasaran Digital UMKM',
-    icon: '📅',
+    image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=1200&q=80',
     startDate: '3 Agustus 2026',
     duration: '3 minggu',
     groupSize: '25 peserta/kelompok',
@@ -48,7 +48,7 @@ const BOOTCAMPS_DATA = {
   'bootcamp-web-developer': {
     category: 'Online Camp',
     title: 'Bootcamp Web Developer Pemula',
-    icon: '📅',
+    image: 'https://images.unsplash.com/photo-1569748130764-3fed0c102c59?auto=format&fit=crop&w=1200&q=80',
     startDate: '17 Agustus 2026',
     duration: '4 minggu',
     groupSize: '20 peserta/kelompok',

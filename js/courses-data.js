@@ -6,7 +6,7 @@ const COURSES_DATA = {
   'literasi-digital-pemula': {
     category: 'Literasi Digital Dasar',
     title: 'Literasi Digital untuk Pemula',
-    icon: '💻',
+    image: 'https://images.unsplash.com/photo-1758270705290-62b6294dd044?auto=format&fit=crop&w=1200&q=80',
     duration: '4 jam',
     participants: '3.200 peserta',
     videos: '18 video',
@@ -27,7 +27,7 @@ const COURSES_DATA = {
   'office-produktivitas-kerja': {
     category: 'Produktivitas & Perkantoran',
     title: 'Microsoft Office untuk Produktivitas Kerja',
-    icon: '📊',
+    image: 'https://images.unsplash.com/photo-1507206130118-b5907f817163?auto=format&fit=crop&w=1200&q=80',
     duration: '6 jam',
     participants: '2.750 peserta',
     videos: '24 video',
@@ -48,7 +48,7 @@ const COURSES_DATA = {
   'pemasaran-digital-umkm': {
     category: 'Pemasaran Digital',
     title: 'Dasar Pemasaran Digital untuk UMKM',
-    icon: '📱',
+    image: 'https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=1200&q=80',
     duration: '5 jam',
     participants: '4.100 peserta',
     videos: '20 video',
@@ -69,7 +69,7 @@ const COURSES_DATA = {
   'coding-dasar-website': {
     category: 'Coding Dasar',
     title: 'Membuat Website Pertamamu',
-    icon: '🌐',
+    image: 'https://images.unsplash.com/photo-1569748130764-3fed0c102c59?auto=format&fit=crop&w=1200&q=80',
     duration: '8 jam',
     participants: '1.980 peserta',
     videos: '32 video',
@@ -90,7 +90,7 @@ const COURSES_DATA = {
   'keamanan-data-privasi': {
     category: 'Literasi Digital Dasar',
     title: 'Keamanan Data & Privasi di Internet',
-    icon: '🔒',
+    image: 'https://images.unsplash.com/photo-1768839720936-87ce3adf2d08?auto=format&fit=crop&w=1200&q=80',
     duration: '3 jam',
     participants: '2.400 peserta',
     videos: '14 video',
@@ -111,7 +111,7 @@ const COURSES_DATA = {
   'desain-konten-canva': {
     category: 'Pemasaran Digital',
     title: 'Desain Konten dengan Canva',
-    icon: '🎨',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
     duration: '4 jam',
     participants: '3.600 peserta',
     videos: '16 video',

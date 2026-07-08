@@ -20,7 +20,8 @@
   document.getElementById('course-videos').textContent = course.videos;
   document.getElementById('course-videos-2').textContent = course.videos.split(' ')[0];
   document.getElementById('course-rating').textContent = course.rating;
-  document.getElementById('course-icon').textContent = course.icon;
+  document.getElementById('course-icon').src = course.image;
+  document.getElementById('course-icon').alt = course.title;
   document.getElementById('course-full-description').textContent = course.fullDescription;
 
   const curriculumEl = document.getElementById('course-curriculum');
