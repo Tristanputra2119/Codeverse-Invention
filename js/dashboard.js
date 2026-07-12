@@ -13,7 +13,7 @@
     el.textContent = nama;
   });
   const heading = document.getElementById('welcome-heading');
-  if (heading) heading.textContent = `Halo, ${nama}! 👋`;
+  if (heading) heading.textContent = `Halo, ${nama}!`;
 })();
 
 (function initLogout() {
@@ -70,7 +70,7 @@
   function addBotMessage(text) {
     const el = document.createElement('div');
     el.className = 'flex items-start gap-2';
-    el.innerHTML = `<span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-sm" aria-hidden="true">🤖</span>
+    el.innerHTML = `
       <p class="rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-900"></p>`;
     el.querySelector('p').textContent = text;
     messages.appendChild(el);

@@ -41,7 +41,6 @@ function formatRupiah(amount) {
     li.className = 'flex items-center justify-between rounded-lg border border-gray-100 px-4 py-3 text-sm';
     li.innerHTML = `
       <span class="flex items-center gap-2 text-gray-900">
-        <span class="text-primary-hover" aria-hidden="true">📌</span>
         ${index + 1}. ${item.title}
       </span>
       <span class="text-xs text-gray-600">${item.duration}</span>
