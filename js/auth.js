@@ -36,15 +36,23 @@ function setActiveTab(tab) {
   const isDaftar = tab === 'daftar';
   tabDaftar.setAttribute('aria-selected', String(isDaftar));
   tabMasuk.setAttribute('aria-selected', String(!isDaftar));
-  tabDaftar.classList.toggle('bg-navy', isDaftar);
-  tabDaftar.classList.toggle('text-white', isDaftar);
-  tabDaftar.classList.toggle('text-gray-600', !isDaftar);
-  tabMasuk.classList.toggle('bg-navy', !isDaftar);
-  tabMasuk.classList.toggle('text-white', !isDaftar);
-  tabMasuk.classList.toggle('text-gray-600', isDaftar);
+  tabDaftar.classList.toggle('hidden', isDaftar);
+  tabMasuk.classList.toggle('hidden', !isDaftar);
   panelDaftar.classList.toggle('hidden', !isDaftar);
   panelMasuk.classList.toggle('hidden', isDaftar);
   hideAuthError();
+}
+
+function initPasswordToggles() {
+  document.querySelectorAll('[data-toggle-password]').forEach((btn) => {
+    const input = document.getElementById(btn.dataset.togglePassword);
+    if (!input) return;
+    btn.addEventListener('click', () => {
+      const show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    });
+  });
 }
 
 (function initAuthPage() {
@@ -57,6 +65,7 @@ function setActiveTab(tab) {
   document.querySelectorAll('[data-switch-to]').forEach((btn) => {
     btn.addEventListener('click', () => setActiveTab(btn.dataset.switchTo));
   });
+  initPasswordToggles();
 
   if (window.location.hash === '#masuk') {
     setActiveTab('masuk');
@@ -70,10 +79,8 @@ function setActiveTab(tab) {
     const nama = document.getElementById('daftar-nama').value.trim();
     const email = document.getElementById('daftar-email').value.trim();
     const sandi = document.getElementById('daftar-sandi').value;
-    const konfirmasi = document.getElementById('daftar-konfirmasi').value;
-    const setuju = document.getElementById('daftar-setuju').checked;
 
-    if (!nama || !email || !sandi || !konfirmasi) {
+    if (!nama || !email || !sandi) {
       showAuthError('Semua kolom wajib diisi.');
       return;
     }
@@ -83,14 +90,6 @@ function setActiveTab(tab) {
     }
     if (sandi.length < 8) {
       showAuthError('Kata sandi minimal 8 karakter.');
-      return;
-    }
-    if (sandi !== konfirmasi) {
-      showAuthError('Konfirmasi kata sandi tidak sama.');
-      return;
-    }
-    if (!setuju) {
-      showAuthError('Kamu harus menyetujui Syarat & Ketentuan terlebih dahulu.');
       return;
     }
 
