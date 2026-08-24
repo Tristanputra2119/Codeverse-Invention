@@ -1,4 +1,4 @@
-# Codeverse Invention
+# EduVerse Invention
 
 ## Git commits
 

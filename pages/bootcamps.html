@@ -12,9 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../js/tailwind-config.js"></script>
   <link rel="stylesheet" href="../css/style.css" />
-  <script>
-    // Auth guard dihapus agar dummy website bisa berjalan lancar di local (file:///...) tanpa infinite loop.
-  </script>
+  <script src="../js/auth-guard.js"></script>
 </head>
 
 <body class="bg-[#f5f5f5] font-sans text-gray-900 antialiased">
@@ -169,7 +167,7 @@
         <section class="mt-10" aria-labelledby="active-bootcamp-heading">
           <div class="flex items-end justify-between">
             <h2 id="active-bootcamp-heading" class="text-lg font-bold text-[#1c1b1b]">Active Bootcamp</h2>
-            <a href="#" class="text-sm font-bold text-primary-hover hover:underline">View All</a>
+            <a href="bootcamps.html#active-bootcamp-heading" class="text-sm font-bold text-primary-hover hover:underline">View All</a>
           </div>
 
           <div class="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -239,7 +237,7 @@
         <section class="mt-10" aria-labelledby="finished-bootcamp-heading">
           <div class="flex items-end justify-between">
             <h2 id="finished-bootcamp-heading" class="text-lg font-bold text-[#1c1b1b]">Finished Bootcamp</h2>
-            <a href="#" class="text-sm font-bold text-primary-hover hover:underline">View History</a>
+            <a href="bootcamps.html#finished-bootcamp-heading" class="text-sm font-bold text-primary-hover hover:underline">View History</a>
           </div>
 
           <div class="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -274,7 +272,7 @@
     <div class="mx-auto max-w-[1280px] px-4 py-10 sm:px-8">
       <div class="grid gap-8 sm:grid-cols-4">
         <div class="sm:col-span-1">
-          <a href="../index.html" class="flex items-center gap-2" aria-label="Codeverse — back to home">
+          <a href="../index.html" class="flex items-center gap-2" aria-label="EduVerse — back to home">
             <span class="text-xl font-bold"><span class="text-primary">C</span>odeverse</span>
           </a>
           <p class="mt-2 max-w-xs text-sm text-gray-400">Empowering the next generation of digital creators through
@@ -284,34 +282,34 @@
           <h3 class="text-sm font-bold text-white">Company</h3>
           <ul class="mt-3 space-y-2 text-sm text-gray-400">
             <li><a href="../index.html#about" class="hover:text-white">About Us</a></li>
-            <li><a href="#" class="hover:text-white">Careers</a></li>
-            <li><a href="#" class="hover:text-white">Press Kit</a></li>
+            <li><a href="coming-soon.html" class="hover:text-white">Careers</a></li>
+            <li><a href="coming-soon.html" class="hover:text-white">Press Kit</a></li>
           </ul>
         </nav>
         <nav aria-label="Support">
           <h3 class="text-sm font-bold text-white">Support</h3>
           <ul class="mt-3 space-y-2 text-sm text-gray-400">
-            <li><a href="#" class="hover:text-white">Contact Support</a></li>
-            <li><a href="#"
+            <li><a href="coming-soon.html" class="hover:text-white">Contact Support</a></li>
+            <li><a href="discussion.html"
                 class="inline-block rounded-full bg-white px-3 py-1 text-xs font-bold text-navy hover:bg-gray-100">Discussion
                 Forum</a></li>
-            <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+            <li><a href="terms.html" class="hover:text-white">Terms of Service</a></li>
           </ul>
         </nav>
         <div>
           <h3 class="text-sm font-bold text-white">Social</h3>
           <div class="mt-3 flex gap-3">
-            <a href="#" aria-label="EduVerse website"
+            <a href="coming-soon.html" aria-label="EduVerse website"
               class="flex h-8 w-8 items-center justify-center rounded-full border border-navy-border text-xs hover:bg-navy-light">🌐</a>
-            <a href="#" aria-label="EduVerse community"
+            <a href="coming-soon.html" aria-label="EduVerse community"
               class="flex h-8 w-8 items-center justify-center rounded-full border border-navy-border text-xs hover:bg-navy-light">👥</a>
-            <a href="#" aria-label="EduVerse email"
+            <a href="coming-soon.html" aria-label="EduVerse email"
               class="flex h-8 w-8 items-center justify-center rounded-full border border-navy-border text-xs hover:bg-navy-light">@</a>
           </div>
         </div>
       </div>
       <div class="mt-10 flex flex-col items-center justify-between gap-4 border-t border-navy-border pt-6 sm:flex-row">
-        <p class="text-xs text-gray-400">&copy; 2024 Codeverse. All rights reserved.</p>
+        <p class="text-xs text-gray-400">&copy; 2024 EduVerse. All rights reserved.</p>
         <button id="btn-service-footer" type="button"
           class="rounded-lg bg-primary px-6 py-2.5 text-sm font-bold text-[#251a00] hover:bg-primary-hover">Start
           Chat</button>

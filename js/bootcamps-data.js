@@ -1,4 +1,4 @@
-// Data mock katalog bootcamp Codeverse. Dipakai bersama oleh pages/bootcamps.html,
+// Data mock katalog bootcamp EduVerse. Dipakai bersama oleh pages/bootcamps.html,
 // pages/bootcamp-detail.html, dan pages/payment.html supaya kontennya konsisten.
 
 const BOOTCAMPS_DATA = {

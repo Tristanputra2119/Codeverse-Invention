@@ -10,6 +10,24 @@ function setSession(email) {
   localStorage.setItem('codeverse_session', email);
 }
 
+function getPostAuthRedirect() {
+  const rawTarget = sessionStorage.getItem('eduverse_return_to');
+  sessionStorage.removeItem('eduverse_return_to');
+  if (!rawTarget) return 'dashboard.html';
+
+  const privatePages = new Set(['dashboard.html', 'courses.html', 'bootcamps.html', 'certificates.html', 'payment.html']);
+  try {
+    const target = new URL(rawTarget, window.location.href);
+    const page = target.pathname.split('/').pop();
+    if (target.origin !== window.location.origin || target.pathname !== `/pages/${page}` || !privatePages.has(page)) {
+      return 'dashboard.html';
+    }
+    return `${page}${target.search}${target.hash}`;
+  } catch {
+    return 'dashboard.html';
+  }
+}
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function showAuthError(message) {
@@ -95,7 +113,7 @@ function initPasswordToggles() {
 
     localStorage.setItem('codeverse_user', JSON.stringify({ nama, email, sandi }));
     setSession(email);
-    window.location.href = 'dashboard.html';
+    window.location.href = getPostAuthRedirect();
   });
 
   const formMasuk = document.getElementById('panel-masuk');
@@ -123,6 +141,6 @@ function initPasswordToggles() {
     }
 
     setSession(email);
-    window.location.href = 'dashboard.html';
+    window.location.href = getPostAuthRedirect();
   });
 })();

@@ -4,17 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title id="page-title">Pembayaran — Codeverse</title>
-  <meta name="description" content="Selesaikan pendaftaran bootcamp pilihanmu di Codeverse." />
+  <title id="page-title">Pembayaran — EduVerse</title>
+  <meta name="description" content="Selesaikan pendaftaran bootcamp pilihanmu di EduVerse." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="../js/tailwind-config.js"></script>
   <link rel="stylesheet" href="../css/style.css" />
-  <script>
-    // Auth guard dihapus agar dummy website bisa berjalan lancar di local (file:///) tanpa infinite loop.
-  </script>
+  <script src="../js/auth-guard.js"></script>
 </head>
 
 <body class="bg-white font-sans text-gray-900 antialiased">
@@ -37,6 +35,10 @@
   <main id="main-content" class="mx-auto max-w-[1280px] px-4 py-8 sm:px-6">
     <h1 class="text-2xl font-bold text-gray-900">Selesaikan Pendaftaran</h1>
     <p class="mt-1 text-sm text-gray-600">Isi data di bawah untuk mengamankan slot bootcamp-mu.</p>
+    <div class="mt-4 rounded-lg border border-primary/40 bg-primary-tint px-4 py-3 text-sm text-[#765a00]" role="status">
+      <p class="font-semibold">Mode simulasi</p>
+      <p class="mt-1">Form ini hanya untuk demo. Tidak ada pembayaran atau pengiriman email yang diproses.</p>
+    </div>
 
     <div class="mt-6 flex flex-col gap-8 lg:flex-row">
       <!-- Kolom Form (60%) -->
@@ -91,8 +93,8 @@
         </div>
 
         <button type="submit"
-          class="w-full rounded-lg bg-primary py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover lg:hidden">Bayar
-          Sekarang</button>
+          class="w-full rounded-lg bg-primary py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover lg:hidden">Simulasikan
+          Pendaftaran</button>
       </form>
 
       <!-- Ringkasan Pesanan (40%) -->
@@ -118,8 +120,8 @@
             <span>Total</span><span id="order-total"></span>
           </div>
           <button type="submit" form="payment-form"
-            class="mt-5 hidden w-full rounded-lg bg-primary py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover lg:block">Bayar
-            Sekarang</button>
+            class="mt-5 hidden w-full rounded-lg bg-primary py-3 text-sm font-semibold text-navy transition hover:bg-primary-hover lg:block">Simulasikan
+            Pendaftaran</button>
         </div>
       </aside>
     </div>
@@ -129,9 +131,9 @@
   <div id="thank-you-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 p-4" role="dialog"
     aria-modal="true" aria-labelledby="thank-you-heading">
     <div class="w-full max-w-md rounded-2xl bg-white p-8 text-center shadow-[0_8px_32px_rgba(0,0,0,0.16)] sm:p-10">
-      <h2 id="thank-you-heading" class="mt-4 text-xl font-bold text-gray-900">Terima Kasih! Pembayaran Berhasil</h2>
-      <p class="mt-2 text-sm text-gray-600">Pendaftaranmu untuk <strong id="modal-order-title">bootcamp ini</strong>
-        sudah kami terima. Detail jadwal akan dikirim ke emailmu.</p>
+      <h2 id="thank-you-heading" class="mt-4 text-xl font-bold text-gray-900">Pendaftaran Simulasi Berhasil</h2>
+      <p class="mt-2 text-sm text-gray-600">Simulasi pendaftaran untuk <strong id="modal-order-title">bootcamp ini</strong>
+        selesai. Tidak ada transaksi nyata dan tidak ada email yang dikirim.</p>
       <a href="dashboard.html"
         class="mt-6 block rounded-lg bg-primary py-3 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Kembali
         ke Dashboard</a>

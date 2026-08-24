@@ -10,12 +10,14 @@ function formatRupiah(amount) {
 
   const params = new URLSearchParams(window.location.search);
   const requestedId = params.get('id');
-  const fallbackId = Object.keys(BOOTCAMPS_DATA)[0];
-  const id = BOOTCAMPS_DATA[requestedId] ? requestedId : fallbackId;
-  const bootcamp = BOOTCAMPS_DATA[id];
-  if (!bootcamp) return;
+  const bootcamp = requestedId ? BOOTCAMPS_DATA[requestedId] : null;
+  if (!bootcamp) {
+    window.location.replace(`404.html?resource=bootcamp&id=${encodeURIComponent(requestedId || '')}`);
+    return;
+  }
+  const id = requestedId;
 
-  document.title = `${bootcamp.title} — Codeverse`;
+  document.title = `${bootcamp.title} — EduVerse`;
   document.getElementById('breadcrumb-title').textContent = bootcamp.title;
   document.getElementById('bootcamp-badge').textContent = bootcamp.category;
   document.getElementById('bootcamp-title').textContent = bootcamp.title;

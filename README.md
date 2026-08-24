@@ -1,4 +1,4 @@
-# Codeverse — INVENTION 2026
+# EduVerse — INVENTION 2026
 
 Website statis untuk kompetisi INVENTION 2026, subtema **Building Smarter Communities Through Digital Learning**.
 

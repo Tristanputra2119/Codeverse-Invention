@@ -6,11 +6,13 @@
 
   const params = new URLSearchParams(window.location.search);
   const requestedId = params.get('id');
-  const fallbackId = Object.keys(COURSES_DATA)[0];
-  const course = COURSES_DATA[requestedId] || COURSES_DATA[fallbackId];
-  if (!course) return;
+  const course = requestedId ? COURSES_DATA[requestedId] : null;
+  if (!course) {
+    window.location.replace(`404.html?resource=course&id=${encodeURIComponent(requestedId || '')}`);
+    return;
+  }
 
-  document.title = `${course.title} — Codeverse`;
+  document.title = `${course.title} — EduVerse`;
   document.getElementById('breadcrumb-title').textContent = course.title;
   document.getElementById('course-badge').textContent = course.category;
   document.getElementById('course-title').textContent = course.title;

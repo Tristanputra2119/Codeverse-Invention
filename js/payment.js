@@ -9,12 +9,16 @@ function formatRupiah(amount) {
   if (typeof BOOTCAMPS_DATA === 'undefined') return;
 
   const params = new URLSearchParams(window.location.search);
+  const hasRequestedId = params.has('id');
   const requestedId = params.get('id');
   const fallbackId = Object.keys(BOOTCAMPS_DATA)[0];
-  const bootcamp = BOOTCAMPS_DATA[requestedId] || BOOTCAMPS_DATA[fallbackId];
-  if (!bootcamp) return;
+  const bootcamp = hasRequestedId ? BOOTCAMPS_DATA[requestedId] : BOOTCAMPS_DATA[fallbackId];
+  if (!bootcamp) {
+    window.location.replace(`404.html?resource=payment&id=${encodeURIComponent(requestedId || '')}`);
+    return;
+  }
 
-  document.title = `Pembayaran ${bootcamp.title} — Codeverse`;
+  document.title = `Pembayaran ${bootcamp.title} — EduVerse`;
   document.getElementById('order-icon').src = bootcamp.image;
   document.getElementById('order-icon').alt = bootcamp.title;
   document.getElementById('order-title').textContent = bootcamp.title;

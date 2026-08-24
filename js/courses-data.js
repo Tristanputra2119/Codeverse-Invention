@@ -1,4 +1,4 @@
-// Data mock katalog kelas Codeverse. Dipakai bersama oleh halaman yang menampilkan
+// Data mock katalog kelas EduVerse. Dipakai bersama oleh halaman yang menampilkan
 // kartu kelas (index.html, pages/courses.html, pages/dashboard.html) dan halaman
 // detail (pages/course-detail.html) supaya kontennya konsisten satu sumber data.
 
@@ -127,6 +127,90 @@ const COURSES_DATA = {
     reviews: [
       { initials: 'SW', name: 'Siti W.', text: 'Desain feed Instagram toko saya jadi jauh lebih rapi dan konsisten.' },
       { initials: 'AF', name: 'Andi F.', text: 'Templatenya gampang diikuti bahkan buat yang nggak bisa desain sama sekali.' },
+    ],
+  },
+  'generative-ai-specialist': {
+    category: 'Artificial Intelligence',
+    title: 'Generative AI Specialist',
+    image: '../img/certificate_1.jpg',
+    duration: '12 jam',
+    participants: '4.800 peserta',
+    videos: '36 video',
+    rating: '4.9',
+    description: 'Pelajari dasar hingga penerapan Generative AI untuk membuat solusi kerja yang lebih cepat dan kreatif.',
+    fullDescription: 'Kelas ini membahas cara kerja model generatif, teknik menulis prompt, evaluasi output, dan penerapan AI yang bertanggung jawab untuk kebutuhan profesional.',
+    curriculum: [
+      { title: 'Dasar Generative AI', duration: '1 jam', done: true },
+      { title: 'Prompt Engineering', duration: '2 jam', done: false },
+      { title: 'Membangun Workflow AI', duration: '3 jam', done: false },
+      { title: 'Proyek Akhir & Sertifikasi', duration: '1 jam', done: false },
+    ],
+    reviews: [
+      { initials: 'NA', name: 'Nadia A.', text: 'Contoh prompt dan workflow-nya langsung membantu pekerjaan sehari-hari.' },
+      { initials: 'AF', name: 'Andi F.', text: 'Materinya runtut dari konsep sampai praktik, cocok untuk pemula.' },
+    ],
+  },
+  'ai-machine-learning-engineer': {
+    category: 'Artificial Intelligence',
+    title: 'AI & Machine Learning Engineer',
+    image: '../img/certificate_2.jpeg',
+    duration: '18 jam',
+    participants: '3.900 peserta',
+    videos: '48 video',
+    rating: '4.9',
+    description: 'Bangun fondasi machine learning, mulai dari pengolahan data hingga evaluasi model prediktif.',
+    fullDescription: 'Kelas ini mengajarkan alur kerja machine learning secara praktis: menyiapkan data, memilih algoritma, melatih model, mengukur performa, dan menyusun eksperimen yang dapat diulang.',
+    curriculum: [
+      { title: 'Pengantar Machine Learning', duration: '2 jam', done: true },
+      { title: 'Data Preparation', duration: '3 jam', done: false },
+      { title: 'Training & Evaluasi Model', duration: '4 jam', done: false },
+      { title: 'Proyek Prediksi', duration: '3 jam', done: false },
+    ],
+    reviews: [
+      { initials: 'DP', name: 'Dewi P.', text: 'Penjelasan evaluasi modelnya jelas dan tidak berhenti di teori.' },
+      { initials: 'BS', name: 'Budi S.', text: 'Latihannya membuat saya lebih percaya diri membaca hasil model.' },
+    ],
+  },
+  'ai-product-manager': {
+    category: 'Product & Technology',
+    title: 'AI Product Manager',
+    image: '../img/certificate_3.jpg',
+    duration: '10 jam',
+    participants: '2.700 peserta',
+    videos: '28 video',
+    rating: '4.9',
+    description: 'Pelajari cara merancang produk berbasis AI yang bermanfaat, terukur, dan sesuai kebutuhan pengguna.',
+    fullDescription: 'Kelas ini membahas discovery, validasi masalah, pemilihan use case AI, penyusunan roadmap, serta metrik untuk mengukur keberhasilan produk secara bertanggung jawab.',
+    curriculum: [
+      { title: 'Memahami Produk AI', duration: '1 jam', done: true },
+      { title: 'Menemukan Use Case Bernilai', duration: '2 jam', done: false },
+      { title: 'Roadmap & Eksperimen Produk', duration: '3 jam', done: false },
+      { title: 'Proyek Product Brief', duration: '2 jam', done: false },
+    ],
+    reviews: [
+      { initials: 'RA', name: 'Rina A.', text: 'Kerangka product brief-nya sangat membantu menyusun ide dengan lebih terarah.' },
+      { initials: 'SW', name: 'Siti W.', text: 'Materinya membuat sisi bisnis dan teknis terasa lebih mudah dipahami.' },
+    ],
+  },
+  'computer-vision-nlp-specialist': {
+    category: 'Artificial Intelligence',
+    title: 'Computer Vision & NLP Specialist',
+    image: '../img/certificate_4.jpg',
+    duration: '20 jam',
+    participants: '2.300 peserta',
+    videos: '52 video',
+    rating: '4.9',
+    description: 'Kenali penerapan computer vision dan natural language processing untuk memecahkan masalah dunia nyata.',
+    fullDescription: 'Kelas ini memperkenalkan teknik penting untuk memahami gambar dan bahasa: preprocessing, klasifikasi, ekstraksi fitur, text classification, dan evaluasi hasil model.',
+    curriculum: [
+      { title: 'Dasar Computer Vision', duration: '3 jam', done: true },
+      { title: 'Klasifikasi dan Ekstraksi Fitur', duration: '4 jam', done: false },
+      { title: 'Dasar Natural Language Processing', duration: '4 jam', done: false },
+      { title: 'Proyek Vision atau NLP', duration: '4 jam', done: false },
+    ],
+    reviews: [
+      { initials: 'NA', name: 'Nadia A.', text: 'Studi kasusnya membantu saya memahami kapan memakai vision atau NLP.' },
+      { initials: 'DP', name: 'Dewi P.', text: 'Materi teknisnya padat tetapi tetap dijelaskan dengan contoh yang konkret.' },
     ],
   },
 };
