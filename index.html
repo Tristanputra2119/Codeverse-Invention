@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduVerse — Be The Real Professional Person</title>
+  <meta name="description"
+    content="EduVerse is a digital learning platform: courses, learn paths, bootcamps, and internationally recognized certificates for learners, job seekers, and professionals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body class="bg-white font-sans text-gray-900 antialiased">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-white">
+    Lompat ke konten utama
+  </a>
+
+  <!-- Announcement Bar -->
+  <div class="flex items-center justify-center bg-navy px-4 py-3 text-center text-xs font-bold text-primary">
+    <p>⚡ Buy Class Now: Up to 90% Discount on Classes ⚡</p>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 bg-white drop-shadow-[0px_2px_4px_rgba(0,0,0,0.08)]" data-aos="fade-down"
+    data-aos-duration="800">
+    <nav class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 sm:px-8"
+      aria-label="Main navigation">
+      <a href="index.html" class="flex shrink-0 items-center" aria-label="EduVerse — back to home">
+        <img src="img/logo-eduverse.png" alt="EduVerse" class="h-9 w-auto" />
+      </a>
+
+      <form id="search-form" role="search" class="hidden max-w-md flex-1 items-center md:flex"
+        aria-label="Search courses">
+        <label for="search-input" class="sr-only">Search courses, skills, paths</label>
+        <div class="flex w-full items-center rounded-lg bg-[#f6f3f2] pl-4 pr-1">
+          <img src="img/icon-search.svg" alt="" class="h-[18px] w-[18px] shrink-0" aria-hidden="true" />
+          <input id="search-input" type="text" placeholder="Search courses, skills, paths..."
+            class="h-10 w-full border-none bg-transparent px-2 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0" />
+        </div>
+      </form>
+
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="pages/courses.html"
+          class="text-[15px] text-[#4e4634] hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Programs</a>
+        <a href="pages/learn-path.html"
+          class="text-[15px] text-[#4e4634] hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Learn
+          Path</a>
+        <a href="#about"
+          class="text-[15px] text-[#4e4634] hover:text-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">About
+          Us</a>
+        <a href="pages/signup.html"
+          class="rounded-lg bg-primary px-6 py-2 text-sm font-bold text-[#6f5500] transition hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy">
+          Join Now
+        </a>
+      </div>
+
+      <button id="nav-toggle" type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-100 lg:hidden"
+        aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          class="h-5 w-5" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden border-t border-gray-100 px-4 pb-4 lg:hidden">
+      <form role="search" class="mt-3 flex items-center md:hidden" aria-label="Search courses (mobile)">
+        <label for="search-input-mobile" class="sr-only">Search courses, skills, paths</label>
+        <div class="flex w-full items-center rounded-lg bg-[#f6f3f2] pl-4 pr-1">
+          <img src="img/icon-search.svg" alt="" class="h-[18px] w-[18px] shrink-0" aria-hidden="true" />
+          <input id="search-input-mobile" type="text" placeholder="Search courses..."
+            class="h-10 w-full border-none bg-transparent px-2 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0" />
+        </div>
+      </form>
+      <nav class="mt-4 flex flex-col gap-3 text-sm" aria-label="Mobile navigation">
+        <a href="pages/courses.html" class="py-1 text-[#4e4634]">Programs</a>
+        <a href="pages/learn-path.html" class="py-1 text-[#4e4634]">Learn Path</a>
+        <a href="#about" class="py-1 text-[#4e4634]">About Us</a>
+        <a href="pages/signup.html"
+          class="mt-1 rounded-lg bg-primary px-4 py-2 text-center font-bold text-[#6f5500]">Join Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 3. Hero Section -->
+    <section class="bg-white overflow-hidden">
+      <div
+        class="mx-auto grid max-w-[1280px] gap-10 px-4 py-16 sm:px-8 sm:py-20 lg:grid-cols-2 lg:items-center lg:py-24">
+        <div data-aos="fade-right" data-aos-duration="1000">
+          <span class="inline-block rounded-full bg-primary px-4 py-1 text-xs font-bold text-[#251a00]">PRO
+            PACKAGE</span>
+          <h1
+            class="mt-5 text-4xl font-bold leading-tight tracking-tight text-[#1c1b1b] sm:text-5xl lg:text-[60px] lg:leading-[60px]">
+            Be The Real<br />
+            <span class="text-primary underline decoration-navy">Professional</span><br />
+            Person
+          </h1>
+          <p class="mt-5 max-w-[448px] text-[15px] leading-relaxed text-[#575e71]">
+            Master the industry's most in-demand technical skills with immersive training from world-class experts. Your
+            global career starts here.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a href="pages/signup.html"
+              class="rounded-lg bg-primary px-12 py-4 text-2xl font-bold text-[#251a00] shadow-lg transition hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy">
+              Join Now
+            </a>
+          </div>
+        </div>
+
+        <div class="relative mt-10 flex justify-center lg:mt-0 lg:justify-end" data-aos="fade-left"
+          data-aos-duration="1000" data-aos-delay="200">
+          <img src="img/homepage_hero.png" alt="EduVerse Hero"
+            class="w-full max-w-[500px] object-contain lg:w-[649px] lg:h-[543px] lg:max-w-none lg:-ml-8 xl:-ml-12" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Sub-nav Kategori -->
+    <section class="bg-navy overflow-hidden whitespace-nowrap py-6 flex" data-aos="fade-up" data-aos-duration="800"
+      data-aos-delay="400">
+      <style>
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-marquee {
+          animation: marquee 25s linear infinite;
+        }
+
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
+      </style>
+      <div class="flex w-max animate-marquee">
+        <!-- Group 1 -->
+        <div class="flex shrink-0 items-center gap-12 px-6">
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=ui-ux" class="text-xl font-bold text-primary hover:underline">UI/UX</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=databases"
+            class="text-xl font-bold text-primary hover:underline">DATABASES</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=cyber-security"
+            class="text-xl font-bold text-primary hover:underline">CYBER SECURITY</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=full-stack" class="text-xl font-bold text-primary hover:underline">FULL
+            STACK</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=mobile-development"
+            class="text-xl font-bold text-primary hover:underline">MOBILE DEVELOPMENT</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=web-design" class="text-xl font-bold text-primary hover:underline">WEB
+            DESIGN</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=blockchain"
+            class="text-xl font-bold text-primary hover:underline">BLOCKCHAIN</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=data-science" class="text-xl font-bold text-primary hover:underline">DATA
+            SCIENCE</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=ai-ml" class="text-xl font-bold text-primary hover:underline">AI &amp;
+            ML</a>
+        </div>
+        <!-- Group 2 -->
+        <div class="flex shrink-0 items-center gap-12 px-6" aria-hidden="true">
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=ui-ux" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">UI/UX</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=databases" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">DATABASES</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=cyber-security" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">CYBER SECURITY</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=full-stack" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">FULL STACK</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=mobile-development"
+            class="text-xl font-bold text-primary hover:underline" tabindex="-1">MOBILE DEVELOPMENT</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=web-design" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">WEB DESIGN</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=blockchain" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">BLOCKCHAIN</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=data-science" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">DATA SCIENCE</a>
+          <img src="img/star_icon.png" alt="" class="h-6 w-6 object-contain" />
+          <a href="pages/courses.html?category=ai-ml" class="text-xl font-bold text-primary hover:underline"
+            tabindex="-1">AI &amp; ML</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Section: Top International Certificates -->
+    <section id="kelas-populer" class="bg-white">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-8 sm:py-24">
+        <div class="flex items-end justify-between gap-4" data-aos="fade-up" data-aos-duration="800">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[1.2px] text-[#765a00]">Best Seller</p>
+            <h2 class="mt-2 text-[32px] font-bold tracking-tight text-[#1c1b1b]">Top International Certificates</h2>
+          </div>
+          <a href="pages/certificates.html"
+            class="hidden shrink-0 items-center gap-1 text-base font-bold text-[#575e71] hover:text-navy sm:flex">View
+            All →</a>
+        </div>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="flex flex-col overflow-hidden rounded-xl border border-[#d2c5ad] bg-white" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="relative aspect-[1270/832] overflow-hidden">
+              <img src="img/cert-google.jpeg" alt="Google Cloud Architect Professional Certificate"
+                class="h-full w-full object-cover" loading="lazy" />
+              <span
+                class="absolute left-3 top-3 flex items-center gap-1 rounded-lg bg-white/90 px-2 py-1 text-[10px] font-bold text-[#1c1b1b] backdrop-blur">
+                <span
+                  class="flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-[8px] font-bold text-white">G</span>
+                Google
+              </span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold text-[#1c1b1b]">Google Cloud Architect Professional Certificate</h3>
+              <p class="flex flex-wrap gap-4 text-sm text-[#575e71]"><span>24h</span><span>128 Videos</span></p>
+              <a href="pages/certificate-detail.html?id=google-cloud-architect"
+                class="mt-auto block rounded-lg bg-primary py-2 text-center text-[13px] font-bold text-[#251a00] transition hover:bg-primary-hover">View
+                Details</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl border border-[#d2c5ad] bg-white" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="relative aspect-[1270/832] overflow-hidden">
+              <img src="img/cert-aws.png" alt="AWS Certified Solutions Architect Associate"
+                class="h-full w-full object-cover" loading="lazy" />
+              <span
+                class="absolute left-3 top-3 flex items-center gap-1 rounded-lg bg-white/90 px-2 py-1 text-[10px] font-bold text-[#1c1b1b] backdrop-blur">
+                <span
+                  class="flex h-4 w-4 items-center justify-center rounded-full bg-orange-500 text-[8px] font-bold text-white">A</span>
+                AWS
+              </span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold text-[#1c1b1b]">AWS Certified Solutions Architect Associate</h3>
+              <p class="flex flex-wrap gap-4 text-sm text-[#575e71]"><span>32h</span><span>156 Videos</span></p>
+              <a href="pages/certificate-detail.html?id=aws-solutions-architect"
+                class="mt-auto block rounded-lg bg-primary py-2 text-center text-[13px] font-bold text-[#251a00] transition hover:bg-primary-hover">View
+                Details</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl border border-[#d2c5ad] bg-white" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="relative aspect-[1270/832] overflow-hidden">
+              <img src="img/cert-ibm.png" alt="IBM Data Science Professional Certification"
+                class="h-full w-full object-cover" loading="lazy" />
+              <span
+                class="absolute left-3 top-3 flex items-center gap-1 rounded-lg bg-white/90 px-2 py-1 text-[10px] font-bold text-[#1c1b1b] backdrop-blur">
+                <span
+                  class="flex h-4 w-4 items-center justify-center rounded-full bg-blue-800 text-[8px] font-bold text-white">I</span>
+                IBM
+              </span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold text-[#1c1b1b]">IBM Data Science Professional Certification</h3>
+              <p class="flex flex-wrap gap-4 text-sm text-[#575e71]"><span>45h</span><span>210 Videos</span></p>
+              <a href="pages/certificate-detail.html?id=ibm-data-science"
+                class="mt-auto block rounded-lg bg-primary py-2 text-center text-[13px] font-bold text-[#251a00] transition hover:bg-primary-hover">View
+                Details</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl border border-[#d2c5ad] bg-white" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="relative aspect-[1270/832] overflow-hidden">
+              <img src="img/cert-meta.png" alt="Meta Social Media Marketing Certificate"
+                class="h-full w-full object-cover" loading="lazy" />
+              <span
+                class="absolute left-3 top-3 flex items-center gap-1 rounded-lg bg-white/90 px-2 py-1 text-[10px] font-bold text-[#1c1b1b] backdrop-blur">
+                <span
+                  class="flex h-4 w-4 items-center justify-center rounded-full bg-blue-500 text-[8px] font-bold text-white">M</span>
+                Meta
+              </span>
+            </div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold text-[#1c1b1b]">Meta Social Media Marketing Certificate</h3>
+              <p class="flex flex-wrap gap-4 text-sm text-[#575e71]"><span>18h</span><span>94 Videos</span></p>
+              <a href="pages/certificate-detail.html?id=meta-social-media-marketing"
+                class="mt-auto block rounded-lg bg-primary py-2 text-center text-[13px] font-bold text-[#251a00] transition hover:bg-primary-hover">View
+                Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Section: High Tech AI Certificates -->
+    <section class="bg-gray-50">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 text-center sm:px-8 sm:py-24" data-aos="fade-up"
+        data-aos-duration="800">
+        <p class="text-xs font-bold uppercase tracking-[1.2px] text-[#765a00]">Get Skills Fast</p>
+        <h2 class="mt-2 text-[32px] font-bold tracking-tight text-[#1c1b1b]">High Tech AI Certificates</h2>
+
+        <div class="mt-12 grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
+          <div class="flex flex-col rounded-xl border border-[#d2c5ad] bg-white p-[17px]" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="overflow-hidden rounded-lg bg-[#eae7e7]"><img src="img/certificate_1.jpg"
+                alt="Generative AI Specialist" class="aspect-video w-full object-cover" loading="lazy" /></div>
+            <h3 class="mt-3 text-base font-bold text-[#1c1b1b]">Generative AI Specialist</h3>
+            <p class="mt-2 flex items-center gap-1 pb-4 text-sm font-bold text-[#1c1b1b]"><span
+                class="text-primary">★</span> 4.9</p>
+            <a href="pages/course-detail.html?id=generative-ai-specialist"
+              class="mt-auto block rounded-lg border border-primary py-2 text-center text-base font-bold text-[#765a00] transition hover:bg-primary-tint">Explore</a>
+          </div>
+          <div class="flex flex-col rounded-xl border border-[#d2c5ad] bg-white p-[17px]" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="overflow-hidden rounded-lg bg-[#eae7e7]"><img src="img/certificate_2.jpeg"
+                alt="AI & Machine Learning Engineer" class="aspect-video w-full object-cover" loading="lazy" /></div>
+            <h3 class="mt-3 text-base font-bold text-[#1c1b1b]">AI & Machine Learning Engineer</h3>
+            <p class="mt-2 flex items-center gap-1 pb-4 text-sm font-bold text-[#1c1b1b]"><span
+                class="text-primary">★</span> 4.9</p>
+            <a href="pages/course-detail.html?id=generative-ai-specialist"
+              class="mt-auto block rounded-lg border border-primary py-2 text-center text-base font-bold text-[#765a00] transition hover:bg-primary-tint">Explore</a>
+          </div>
+          <div class="flex flex-col rounded-xl border border-[#d2c5ad] bg-white p-[17px]" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="overflow-hidden rounded-lg bg-[#eae7e7]"><img src="img/certificate_3.jpg"
+                alt="AI Product Manager" class="aspect-video w-full object-cover" loading="lazy" /></div>
+            <h3 class="mt-3 text-base font-bold text-[#1c1b1b]">AI Product Manager</h3>
+            <p class="mt-2 flex items-center gap-1 pb-4 text-sm font-bold text-[#1c1b1b]"><span
+                class="text-primary">★</span> 4.9</p>
+            <a href="pages/course-detail.html?id=generative-ai-specialist"
+              class="mt-auto block rounded-lg border border-primary py-2 text-center text-base font-bold text-[#765a00] transition hover:bg-primary-tint">Explore</a>
+          </div>
+          <div class="flex flex-col rounded-xl border border-[#d2c5ad] bg-white p-[17px]" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="overflow-hidden rounded-lg bg-[#eae7e7]"><img src="img/certificate_4.jpg"
+                alt="Computer Vision & NLP Specialist" class="aspect-video w-full object-cover" loading="lazy" /></div>
+            <h3 class="mt-3 text-base font-bold text-[#1c1b1b]">Computer Vision</h3>
+            <p class="mt-2 flex items-center gap-1 pb-4 text-sm font-bold text-[#1c1b1b]"><span
+                class="text-primary">★</span> 4.9</p>
+            <a href="pages/course-detail.html?id=generative-ai-specialist"
+              class="mt-auto block rounded-lg border border-primary py-2 text-center text-base font-bold text-[#765a00] transition hover:bg-primary-tint">Explore</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Section: Top Company With Us -->
+    <section id="top-companies" class="bg-white">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 text-center sm:px-8 sm:py-24" data-aos="fade-up"
+        data-aos-duration="800">
+        <h2 class="text-[32px] font-bold tracking-tight text-[#1c1b1b]">Top Companies Hiring Our Graduates</h2>
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          <!-- Google -->
+          <div class="flex flex-col gap-5 rounded-xl border border-[#d2c5ad] p-6 text-left" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center gap-4">
+              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gray-50 p-3">
+                <img src="img/company-google.jpg" alt="Google"
+                  class="h-full w-full object-contain mix-blend-multiply" />
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#1c1b1b]">Google Inc</h3>
+                <p class="text-sm text-[#575e71]">International Company</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm text-[#575e71]">
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 6h16v12H4z" opacity=".2" />
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM8 13h8v2H8zm0-3h8v2H8z" />
+                </svg>
+                <span>50+ Sertifikasi</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span>3000+ Pengguna</span>
+              </div>
+            </div>
+            <div class="mt-2 flex items-center gap-3">
+              <a href="pages/courses.html"
+                class="flex-1 rounded-lg bg-navy py-2.5 text-center text-[13px] font-bold text-white transition hover:bg-navy-light">Get
+                Certificates Now</a>
+              <a href="pages/certificates.html"
+                class="flex-1 rounded-lg border border-navy py-2.5 text-center text-[13px] font-bold text-navy transition hover:bg-gray-50">View
+                All Certificates</a>
+            </div>
+          </div>
+
+          <!-- Meta -->
+          <div class="flex flex-col gap-5 rounded-xl border border-[#d2c5ad] p-6 text-left" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center gap-4">
+              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gray-50 p-3">
+                <img src="img/company-meta.jpg" alt="Meta" class="h-full w-full object-contain mix-blend-multiply" />
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#1c1b1b]">Meta Platforms</h3>
+                <p class="text-sm text-[#575e71]">International Company</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm text-[#575e71]">
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 6h16v12H4z" opacity=".2" />
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM8 13h8v2H8zm0-3h8v2H8z" />
+                </svg>
+                <span>30+ Sertifikasi</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span>2000+ Pengguna</span>
+              </div>
+            </div>
+            <div class="mt-2 flex items-center gap-3">
+              <a href="pages/courses.html"
+                class="flex-1 rounded-lg bg-navy py-2.5 text-center text-[13px] font-bold text-white transition hover:bg-navy-light">Get
+                Certificates Now</a>
+              <a href="pages/certificates.html"
+                class="flex-1 rounded-lg border border-navy py-2.5 text-center text-[13px] font-bold text-navy transition hover:bg-gray-50">View
+                All Certificates</a>
+            </div>
+          </div>
+
+          <!-- IBM -->
+          <div class="flex flex-col gap-5 rounded-xl border border-[#d2c5ad] p-6 text-left" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center gap-4">
+              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gray-50 p-3">
+                <img src="img/company-ibm.jpg" alt="IBM" class="h-full w-full object-contain mix-blend-multiply" />
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#1c1b1b]">IBM Corporation</h3>
+                <p class="text-sm text-[#575e71]">International Company</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm text-[#575e71]">
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 6h16v12H4z" opacity=".2" />
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM8 13h8v2H8zm0-3h8v2H8z" />
+                </svg>
+                <span>20+ Sertifikasi</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span>2000+ Pengguna</span>
+              </div>
+            </div>
+            <div class="mt-2 flex items-center gap-3">
+              <a href="pages/courses.html"
+                class="flex-1 rounded-lg bg-navy py-2.5 text-center text-[13px] font-bold text-white transition hover:bg-navy-light">Get
+                Certificates Now</a>
+              <a href="pages/certificates.html"
+                class="flex-1 rounded-lg border border-navy py-2.5 text-center text-[13px] font-bold text-navy transition hover:bg-gray-50">View
+                All Certificates</a>
+            </div>
+          </div>
+
+          <!-- Apple -->
+          <div class="flex flex-col gap-5 rounded-xl border border-[#d2c5ad] p-6 text-left" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center gap-4">
+              <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-gray-50 p-3">
+                <img src="img/company-apple.jpg" alt="Apple" class="h-full w-full object-contain mix-blend-multiply" />
+              </div>
+              <div>
+                <h3 class="text-base font-bold text-[#1c1b1b]">Apple Inc</h3>
+                <p class="text-sm text-[#575e71]">International Company</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-2 text-sm text-[#575e71]">
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 6h16v12H4z" opacity=".2" />
+                  <path
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM8 13h8v2H8zm0-3h8v2H8z" />
+                </svg>
+                <span>40+ Sertifikasi</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <span>3000+ Pengguna</span>
+              </div>
+            </div>
+            <div class="mt-2 flex items-center gap-3">
+              <a href="pages/courses.html"
+                class="flex-1 rounded-lg bg-navy py-2.5 text-center text-[13px] font-bold text-white transition hover:bg-navy-light">Get
+                Certificates Now</a>
+              <a href="pages/certificates.html"
+                class="flex-1 rounded-lg border border-navy py-2.5 text-center text-[13px] font-bold text-navy transition hover:bg-gray-50">View
+                All Certificates</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Section: Online Certificate With International Grade -->
+    <section id="sertifikat" class="bg-navy overflow-hidden">
+      <div class="mx-auto grid max-w-[1280px] lg:grid-cols-2">
+        <div class="flex flex-col justify-center px-4 py-16 sm:px-8 sm:py-24 lg:pr-12" data-aos="fade-right"
+          data-aos-duration="1000">
+          <p class="text-xs font-bold uppercase tracking-[1.2px] text-primary">International Grade</p>
+          <h2 class="mt-3 max-w-md text-[32px] font-bold leading-tight tracking-tight text-white">Online Certificate
+            With Global Standards</h2>
+          <p class="mt-4 max-w-md text-[15px] leading-relaxed text-[#d2c5ad]">Our certifications are recognized by
+            leading tech giants worldwide. Rigorous assessments ensure you meet the high expectations of the global
+            labor market.</p>
+          <a href="pages/certificates.html"
+            class="mt-6 inline-block w-fit rounded-lg border-2 border-primary px-8 py-3 text-center text-base font-bold text-primary transition hover:bg-primary hover:text-[#251a00]">See
+            All Certificate Now</a>
+        </div>
+        <div class="min-h-[320px] overflow-hidden lg:min-h-[500px]" data-aos="fade-left" data-aos-duration="1000">
+          <img src="img/learner_1.jpg" alt="Learner studying at a desk with dual monitors"
+            class="h-full w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Section: Early Bird Bootcamp Deals -->
+    <section id="bootcamp" class="bg-gray-50">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-8 sm:py-24" data-aos="fade-up" data-aos-duration="800">
+        <p class="text-xs font-bold uppercase tracking-[1.2px] text-[#765a00]">Early Bird</p>
+        <h2 class="mt-2 text-[32px] font-bold tracking-tight text-[#1c1b1b]">Bootcamp Deals</h2>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center justify-between bg-navy p-3">
+              <span class="rounded border border-primary px-2 py-1 text-[10px] font-bold text-primary">LIVE
+                SESSION</span>
+              <span class="text-[10px] text-white/60">Starts in 2 days</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80"
+              alt="Full Stack Engineering Intensive Bootcamp" class="aspect-video w-full object-cover" loading="lazy" />
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold leading-snug text-[#1c1b1b]">Full Stack Engineering Intensive Bootcamp</h3>
+              <p class="text-[10px] text-[#575e71]">150+ students joined</p>
+              <a href="pages/bootcamp-detail.html?id=full-stack-engineering"
+                class="mt-auto block rounded-lg bg-navy py-2 text-center text-sm font-bold text-white transition hover:bg-navy-light">Enroll
+                Now</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center justify-between bg-navy p-3">
+              <span class="rounded border border-primary px-2 py-1 text-[10px] font-bold text-primary">LIVE
+                SESSION</span>
+              <span class="text-[10px] text-white/60">Starts in 2 days</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+              alt="Advanced Data Science and Machine Learning" class="aspect-video w-full object-cover"
+              loading="lazy" />
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold leading-snug text-[#1c1b1b]">Advanced Data Science &amp; Machine Learning
+              </h3>
+              <p class="text-[10px] text-[#575e71]">150+ students joined</p>
+              <a href="pages/bootcamp-detail.html?id=data-science-machine-learning"
+                class="mt-auto block rounded-lg bg-navy py-2 text-center text-sm font-bold text-white transition hover:bg-navy-light">Enroll
+                Now</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center justify-between bg-navy p-3">
+              <span class="rounded border border-primary px-2 py-1 text-[10px] font-bold text-primary">LIVE
+                SESSION</span>
+              <span class="text-[10px] text-white/60">Starts in 2 days</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80"
+              alt="Mobile Development iOS and Android" class="aspect-video w-full object-cover" loading="lazy" />
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold leading-snug text-[#1c1b1b]">Mobile Development (iOS &amp; Android)</h3>
+              <p class="text-[10px] text-[#575e71]">150+ students joined</p>
+              <a href="pages/bootcamp-detail.html?id=mobile-development"
+                class="mt-auto block rounded-lg bg-navy py-2 text-center text-sm font-bold text-white transition hover:bg-navy-light">Enroll
+                Now</a>
+            </div>
+          </article>
+
+          <article class="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm" data-aos="fade-up"
+            data-aos-duration="800">
+            <div class="flex items-center justify-between bg-navy p-3">
+              <span class="rounded border border-primary px-2 py-1 text-[10px] font-bold text-primary">LIVE
+                SESSION</span>
+              <span class="text-[10px] text-white/60">Starts in 2 days</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=600&q=80"
+              alt="UI/UX Design Professional Bootcamp" class="aspect-video w-full object-cover" loading="lazy" />
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <h3 class="text-base font-bold leading-snug text-[#1c1b1b]">UI/UX Design Professional Bootcamp</h3>
+              <p class="text-[10px] text-[#575e71]">150+ students joined</p>
+              <a href="pages/bootcamp-detail.html?id=ui-ux-design"
+                class="mt-auto block rounded-lg bg-navy py-2 text-center text-sm font-bold text-white transition hover:bg-navy-light">Enroll
+                Now</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Section: High Quality Certificates For You -->
+    <section id="about" class="bg-white overflow-hidden">
+      <div id="jalur-belajar"
+        class="mx-auto grid max-w-[1280px] gap-12 px-4 py-16 sm:px-8 sm:py-24 lg:grid-cols-2 lg:items-center">
+        <div class="relative" data-aos="fade-right" data-aos-duration="1000">
+          <div class="absolute -right-4 -top-4 h-32 w-32 rounded-full bg-primary/20 blur-2xl" aria-hidden="true"></div>
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+            alt="Team learning together in a modern office"
+            class="relative h-[400px] w-full rounded-xl object-cover shadow-xl" loading="lazy" />
+        </div>
+        <div data-aos="fade-left" data-aos-duration="1000">
+          <p class="text-xs font-bold uppercase tracking-[1.2px] text-[#765a00]">High Quality</p>
+          <h2 class="mt-3 text-[32px] font-bold tracking-tight text-[#1c1b1b]">Why Choose Codeverse Academy?</h2>
+          <p class="mt-4 text-base leading-relaxed text-[#575e71]">We partner with the world's leading technology
+            companies to bring you curricula that actually matters in the real world. No fluff, just practical expertise
+            that gets you hired.</p>
+          <ul class="mt-6 space-y-4">
+            <li class="flex items-center gap-4 text-base font-medium text-[#1c1b1b]"><span class="text-primary"
+                aria-hidden="true">✓</span> Direct Mentorship from Industry Pros</li>
+            <li class="flex items-center gap-4 text-base font-medium text-[#1c1b1b]"><span class="text-primary"
+                aria-hidden="true">✓</span> Lifetime Access to Course Materials</li>
+            <li class="flex items-center gap-4 text-base font-medium text-[#1c1b1b]"><span class="text-primary"
+                aria-hidden="true">✓</span> Global Alumni Network</li>
+          </ul>
+          <a href="pages/signup.html"
+            class="mt-8 inline-block rounded-lg bg-primary px-12 py-3 text-base font-bold text-[#251a00] transition hover:bg-primary-hover">Academy
+            Trial</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CTA Banner -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-[1280px] px-4 py-16 sm:px-8 sm:py-24" data-aos="zoom-in" data-aos-duration="1000">
+        <div
+          class="flex flex-col items-center justify-between gap-8 rounded-2xl bg-navy px-8 py-12 md:flex-row md:px-16 md:py-16">
+          <div class="text-center md:text-left">
+            <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[44px]">
+              Take Your First Step Up<br />Now!
+            </h2>
+            <p class="mt-4 text-base text-gray-300">
+              Join 100k+ students learning modern tech skills.
+            </p>
+          </div>
+          <a href="pages/certificates.html"
+            class="flex shrink-0 flex-col items-center justify-center rounded-xl border border-white px-10 py-3 text-center text-base font-bold text-white transition hover:bg-white hover:text-navy">
+            <span>Get Certificates</span>
+            <span>Now</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-navy text-white">
+    <div class="mx-auto grid max-w-[1280px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-4" data-aos="fade-up"
+      data-aos-duration="1000">
+      <div>
+        <a href="index.html" class="flex items-center gap-2" aria-label="EduVerse — back to home">
+          <span class="text-xl font-bold flex items-center gap-2"><img class="h-9 w-auto" src="img/logo.png"
+              alt="EduVerse">EduVerse</span>
+        </a>
+        <p class="mt-3 max-w-xs text-sm text-gray-400">Leading the future of professional technical education with
+          world-class curriculum and industry-standard certifications.</p>
+        <div class="mt-5 flex gap-4">
+          <a href="#" aria-label="Facebook"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+            </svg>
+          </a>
+          <a href="#" aria-label="TikTok"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Company">
+        <h3 class="text-sm font-semibold text-white">Company</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="#about" class="hover:text-white">About Us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Partnerships</a></li>
+          <li><a href="#" class="hover:text-white">Press Kit</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Resources">
+        <h3 class="text-sm font-semibold text-white">Resources</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white">Help Center</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-white">Cookie Policy</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Newsletter</h3>
+        <p class="mt-3 text-sm text-gray-400">Get the latest course updates and special offers.</p>
+        <form class="mt-3 flex items-center gap-2" aria-label="Subscribe to newsletter"
+          onsubmit="event.preventDefault(); this.reset();">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" name="email" type="email" placeholder="Your email"
+            class="h-10 min-w-0 flex-1 rounded-lg border border-navy-border bg-navy-light px-3 text-sm text-white placeholder-gray-400 focus:border-primary focus:outline-none" />
+          <button type="submit" aria-label="Subscribe"
+            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-[#251a00] hover:bg-primary-hover">→</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="border-t border-navy-border bg-navy-deep">
+      <div
+        class="mx-auto flex max-w-[1280px] flex-col gap-2 px-4 py-4 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>&copy; 2024 Codeverse EdTech. All rights reserved.</p>
+        <p class="flex flex-wrap gap-x-3">
+          <a href="#" class="hover:text-white">Privacy</a>
+          <a href="#" class="hover:text-white">Terms</a>
+          <a href="#" class="hover:text-white">Security</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      offset: 350,
+      duration: 1200,
+      easing: 'ease-out-cubic',
+    });
+  </script>
+</body>
+
+</html>

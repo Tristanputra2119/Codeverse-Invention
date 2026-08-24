@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Courses — EduVerse</title>
+  <meta name="description"
+    content="Track all the courses you have enrolled in on EduVerse, complete with your learning progress." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="../js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script>
+    // Auth guard dihapus agar dummy website bisa berjalan lancar di local (file:///) tanpa infinite loop.
+  </script>
+</head>
+
+<body class="bg-[#f5f5f5] font-sans text-gray-900 antialiased">
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-navy focus:px-4 focus:py-2 focus:text-white">
+    Skip to main content
+  </a>
+
+  <div class="flex items-center justify-center bg-navy px-4 py-2 text-center text-xs font-bold text-primary">
+    <p>⚡ Buy Class Now: Up to 90% Discount on Classes ⚡</p>
+  </div>
+
+  <header class="sticky top-0 z-40 bg-white drop-shadow-[0px_2px_4px_rgba(0,0,0,0.08)]">
+    <nav class="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 py-3 sm:px-8"
+      aria-label="Main navigation">
+      <a href="../index.html" class="flex shrink-0 items-center" aria-label="EduVerse — back to home">
+        <img src="../img/logo-eduverse.png" alt="EduVerse" class="h-9 w-auto" />
+      </a>
+
+      <form role="search" class="hidden max-w-md flex-1 items-center md:flex" aria-label="Search courses">
+        <label for="search-input" class="sr-only">Search courses, skills, paths</label>
+        <div class="flex w-full items-center rounded-lg bg-[#f6f3f2] pl-4 pr-1">
+          <img src="../img/icon-search.svg" alt="" class="h-[18px] w-[18px] shrink-0" aria-hidden="true" />
+          <input id="search-input" type="text" placeholder="Search courses, skills, paths..."
+            class="h-10 w-full border-none bg-transparent px-2 text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0" />
+        </div>
+      </form>
+
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="courses.html" class="text-[15px] text-[#4e4634] hover:text-primary-hover">Programs</a>
+        <a href="learn-path.html" class="text-[15px] text-[#4e4634] hover:text-primary-hover">Learn Path</a>
+        <a href="../index.html#about" class="text-[15px] text-[#4e4634] hover:text-primary-hover">About Us</a>
+        <a href="dashboard.html"
+          class="rounded-lg bg-primary px-6 py-2 text-sm font-bold text-[#6f5500] transition hover:bg-primary-hover">Dashboard</a>
+      </div>
+
+      <button id="nav-toggle" type="button"
+        class="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-100 lg:hidden"
+        aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          class="h-5 w-5" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden border-t border-gray-100 px-4 pb-4 lg:hidden">
+      <nav class="mt-3 flex flex-col gap-3 text-sm" aria-label="Mobile navigation">
+        <a href="courses.html" class="py-1 text-[#4e4634]">Programs</a>
+        <a href="learn-path.html" class="py-1 text-[#4e4634]">Learn Path</a>
+        <a href="../index.html#about" class="py-1 text-[#4e4634]">About Us</a>
+        <a href="dashboard.html"
+          class="mt-1 rounded-lg bg-primary px-4 py-2 text-center font-bold text-[#6f5500]">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="mx-auto max-w-[1280px] px-4 py-10 sm:px-8">
+    <div class="flex flex-col gap-8 lg:flex-row">
+      <aside class="w-full shrink-0 lg:w-[240px]">
+        <div class="rounded-2xl border border-gray-200 bg-white p-5">
+          <div class="flex items-center gap-3">
+            <span id="sidebar-user-initial"
+              class="flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary bg-navy text-lg font-bold text-white"
+              aria-hidden="true">U</span>
+            <div>
+              <p id="sidebar-user-name" class="text-sm font-bold text-gray-900">User</p>
+              <p class="text-xs text-primary-hover">Level 1 Student</p>
+            </div>
+          </div>
+          <nav class="mt-6 flex flex-col gap-1" aria-label="Account menu">
+            <a href="dashboard.html"
+              class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="h-4 w-4" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+              Dashboard
+            </a>
+            <a href="courses.html"
+              class="flex items-center gap-3 rounded-lg bg-primary px-3 py-2.5 text-sm font-bold text-[#251a00]"
+              aria-current="page">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="h-4 w-4" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+              Courses
+            </a>
+            <a href="bootcamps.html"
+              class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="h-4 w-4" aria-hidden="true">
+                <path d="M22 10 12 5 2 10l10 5 10-5Z" />
+                <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+              </svg>
+              Bootcamps
+            </a>
+            <a href="certificates.html"
+              class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="h-4 w-4" aria-hidden="true">
+                <circle cx="12" cy="8" r="6" />
+                <path d="m9 13.5-2 7.5 5-3 5 3-2-7.5" />
+              </svg>
+              Certificates
+            </a>
+          </nav>
+          <div class="mt-4 border-t border-gray-100 pt-4">
+            <button id="logout-btn" type="button"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" class="h-4 w-4" aria-hidden="true">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <path d="M16 17l5-5-5-5" />
+                <path d="M21 12H9" />
+              </svg>
+              Logout
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-4 rounded-2xl bg-navy p-4 text-center">
+          <p class="text-xs text-white/70">Pro Member</p>
+          <a href="payment.html"
+            class="mt-2 block rounded-lg bg-primary py-2 text-sm font-bold text-[#251a00] hover:bg-primary-hover">Upgrade
+            Plan</a>
+        </div>
+      </aside>
+
+      <div class="min-w-0 flex-1 space-y-6">
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">Kelas Saya</h1>
+          <p class="mt-1 text-sm text-gray-600">Semua kelas yang sudah kamu ikuti, lengkap dengan progres belajarnya.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-2 border-b border-gray-100 pb-4" role="group" aria-label="Filter status kelas">
+          <button type="button" data-filter="semua"
+            class="filter-btn rounded-full border border-navy bg-navy px-4 py-2 text-xs font-semibold text-white"
+            aria-pressed="true">Semua</button>
+          <button type="button" data-filter="berjalan"
+            class="filter-btn rounded-full border border-gray-100 px-4 py-2 text-xs font-semibold text-gray-600"
+            aria-pressed="false">Sedang Berjalan</button>
+          <button type="button" data-filter="selesai"
+            class="filter-btn rounded-full border border-gray-100 px-4 py-2 text-xs font-semibold text-gray-600"
+            aria-pressed="false">Selesai</button>
+        </div>
+
+        <div id="course-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <article data-category="berjalan"
+            class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <div class="aspect-video overflow-hidden"><img
+                src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80"
+                alt="Dasar Pemasaran Digital untuk UMKM" class="h-full w-full object-cover" loading="lazy" /></div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Pemasaran Digital</p>
+              <h3 class="text-sm font-bold text-gray-900">Dasar Pemasaran Digital untuk UMKM</h3>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Progres</span><span>60%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100">
+                  <div class="h-1.5 w-3/5 rounded-full bg-primary"></div>
+                </div>
+              </div>
+              <a href="course-detail.html?id=pemasaran-digital-umkm"
+                class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lanjutkan</a>
+            </div>
+          </article>
+
+          <article data-category="berjalan"
+            class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <div class="aspect-video overflow-hidden"><img
+                src="https://images.unsplash.com/photo-1569748130764-3fed0c102c59?auto=format&fit=crop&w=800&q=80"
+                alt="Membuat Website Pertamamu" class="h-full w-full object-cover" loading="lazy" /></div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Coding Dasar</p>
+              <h3 class="text-sm font-bold text-gray-900">Membuat Website Pertamamu</h3>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Progres</span><span>25%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100">
+                  <div class="h-1.5 w-1/4 rounded-full bg-primary"></div>
+                </div>
+              </div>
+              <a href="course-detail.html?id=coding-dasar-website"
+                class="mt-auto block rounded-lg bg-primary py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-primary-hover">Lanjutkan</a>
+            </div>
+          </article>
+
+          <article data-category="selesai"
+            class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <div class="aspect-video overflow-hidden"><img
+                src="https://images.unsplash.com/photo-1768839720936-87ce3adf2d08?auto=format&fit=crop&w=800&q=80"
+                alt="Keamanan Data dan Privasi di Internet" class="h-full w-full object-cover" loading="lazy" /></div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Literasi Digital Dasar</p>
+              <h3 class="text-sm font-bold text-gray-900">Keamanan Data &amp; Privasi di Internet</h3>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Progres</span><span>100%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100">
+                  <div class="h-1.5 w-full rounded-full bg-primary"></div>
+                </div>
+              </div>
+              <a href="course-detail.html?id=keamanan-data-privasi"
+                class="mt-auto block rounded-lg border-[1.5px] border-navy py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-navy hover:text-white">Lihat
+                Ulang</a>
+            </div>
+          </article>
+
+          <article data-category="selesai"
+            class="course-card flex flex-col overflow-hidden rounded-xl border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+            <div class="aspect-video overflow-hidden"><img
+                src="https://images.unsplash.com/photo-1758270705290-62b6294dd044?auto=format&fit=crop&w=800&q=80"
+                alt="Literasi Digital untuk Pemula" class="h-full w-full object-cover" loading="lazy" /></div>
+            <div class="flex flex-1 flex-col gap-2 p-4">
+              <p class="text-xs text-gray-600">Literasi Digital Dasar</p>
+              <h3 class="text-sm font-bold text-gray-900">Literasi Digital untuk Pemula</h3>
+              <div>
+                <div class="flex justify-between text-xs text-gray-600"><span>Progres</span><span>100%</span></div>
+                <div class="mt-1 h-1.5 w-full rounded-full bg-gray-100">
+                  <div class="h-1.5 w-full rounded-full bg-primary"></div>
+                </div>
+              </div>
+              <a href="course-detail.html?id=literasi-digital-pemula"
+                class="mt-auto block rounded-lg border-[1.5px] border-navy py-2.5 text-center text-sm font-semibold text-navy transition hover:bg-navy hover:text-white">Lihat
+                Ulang</a>
+            </div>
+          </article>
+        </div>
+        <p id="course-empty" class="hidden text-center text-sm text-gray-600">Belum ada kelas untuk status ini.</p>
+
+        <div class="rounded-xl border border-dashed border-gray-100 p-6 text-center">
+          <p class="text-sm text-gray-600">Ingin menambah kelas baru?</p>
+          <a href="../index.html#kelas-populer"
+            class="mt-2 inline-block text-sm font-semibold text-primary-hover hover:underline">Jelajahi Kelas Populer
+            →</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-navy text-white">
+    <div class="mx-auto grid max-w-[1280px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-4">
+      <div>
+        <a href="../index.html" class="flex items-center gap-2" aria-label="EduVerse — back to home">
+          <span class="text-xl font-bold flex items-center gap-2"><img class="h-9 w-auto" src="../img/logo.png"
+              alt="EduVerse">EduVerse</span>
+        </a>
+        <p class="mt-3 max-w-xs text-sm text-gray-400">Leading the future of professional technical education with
+          world-class curriculum and industry-standard certifications.</p>
+        <div class="mt-5 flex gap-4">
+          <a href="#" aria-label="Facebook"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.036 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+            </svg>
+          </a>
+          <a href="#" aria-label="TikTok"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-50 text-[#1c1b1b] transition hover:bg-gray-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+              <path
+                d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Company">
+        <h3 class="text-sm font-semibold text-white">Company</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="../index.html#about" class="hover:text-white">About Us</a></li>
+          <li><a href="#" class="hover:text-white">Careers</a></li>
+          <li><a href="#" class="hover:text-white">Partnerships</a></li>
+          <li><a href="#" class="hover:text-white">Press Kit</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Resources">
+        <h3 class="text-sm font-semibold text-white">Resources</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white">Help Center</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-white">Cookie Policy</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-sm font-semibold text-white">Newsletter</h3>
+        <p class="mt-3 text-sm text-gray-400">Get the latest course updates and special offers.</p>
+        <form class="mt-3 flex items-center gap-2" aria-label="Subscribe to newsletter"
+          onsubmit="event.preventDefault(); this.reset();">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" name="email" type="email" placeholder="Your email"
+            class="h-10 min-w-0 flex-1 rounded-lg border border-navy-border bg-navy-light px-3 text-sm text-white placeholder-gray-400 focus:border-primary focus:outline-none" />
+          <button type="submit" aria-label="Subscribe"
+            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-[#251a00] hover:bg-primary-hover">→</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="border-t border-navy-border bg-navy-deep">
+      <div
+        class="mx-auto flex max-w-[1280px] flex-col gap-2 px-4 py-4 text-xs text-gray-400 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p>&copy; 2024 Codeverse EdTech. All rights reserved.</p>
+        <p class="flex flex-wrap gap-x-3">
+          <a href="#" class="hover:text-white">Privacy</a>
+          <a href="#" class="hover:text-white">Terms</a>
+          <a href="#" class="hover:text-white">Security</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-24 right-6 z-40 hidden flex-col items-end gap-2 sm:flex" aria-label="Quick actions">
+    <button id="btn-forum" type="button"
+      class="rounded-lg bg-navy px-4 py-3 text-left text-xs font-semibold text-white shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:bg-navy-light">Discussion
+      Forum</button>
+    <button id="btn-service" type="button"
+      class="rounded-lg bg-primary px-4 py-3 text-left text-xs font-semibold text-navy shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:bg-primary-hover"
+      aria-expanded="false" aria-controls="cs-widget">Our Service</button>
+  </div>
+
+  <p id="toast"
+    class="fixed bottom-6 left-1/2 z-50 hidden -translate-x-1/2 rounded-lg bg-navy px-4 py-2 text-sm text-white shadow-[0_8px_32px_rgba(0,0,0,0.16)]"
+    role="status" aria-live="polite"></p>
+
+  <div id="cs-widget"
+    class="fixed bottom-6 right-6 z-50 hidden w-[320px] max-w-[calc(100vw-2rem)] rounded-2xl bg-white shadow-[0_8px_32px_rgba(0,0,0,0.16)]">
+    <div class="flex items-center justify-between border-b border-gray-100 px-4 py-3">
+      <p class="text-sm font-bold text-gray-900">Customer Service</p>
+      <div class="flex items-center gap-2">
+        <button id="cs-clear" type="button" class="text-gray-600 hover:text-danger"
+          aria-label="Clear conversation"></button>
+        <button id="cs-close" type="button" class="text-gray-600 hover:text-gray-900"
+          aria-label="Close widget">✕</button>
+      </div>
+    </div>
+    <div class="max-h-72 space-y-3 overflow-y-auto px-4 py-3">
+      <div class="flex items-start gap-2">
+        <p class="rounded-lg bg-gray-50 px-3 py-2 text-xs text-gray-900">Hi! Welcome to EduVerse Help. Pick a popular
+          question below, or type your own.</p>
+      </div>
+      <div id="cs-messages" class="space-y-3" aria-live="polite"></div>
+    </div>
+    <div class="border-t border-gray-100 px-4 py-3">
+      <p class="text-xs font-semibold text-gray-900">Frequently Asked Questions:</p>
+      <div class="mt-2 space-y-2">
+        <button type="button"
+          class="cs-faq w-full rounded-lg border border-gray-100 px-3 py-2 text-left text-xs text-gray-900 hover:border-primary"
+          data-answer="Yes! All the courses you enroll in remain accessible for life through your EduVerse account.">Can
+          I access courses for life?</button>
+        <button type="button"
+          class="cs-faq w-full rounded-lg border border-gray-100 px-3 py-2 text-left text-xs text-gray-900 hover:border-primary"
+          data-answer="Certificates are issued automatically once you finish all materials and quizzes in a course, usually within 5 minutes.">How
+          long until my certificate is issued?</button>
+        <button type="button"
+          class="cs-faq w-full rounded-lg border border-gray-100 px-3 py-2 text-left text-xs text-gray-900 hover:border-primary"
+          data-answer="Yes. Video materials and modules can be downloaded to watch or read offline in the EduVerse app.">Can
+          I download the materials?</button>
+      </div>
+      <form id="cs-form" class="mt-3 flex items-center gap-2">
+        <label for="cs-input" class="sr-only">Write your question</label>
+        <input id="cs-input" type="text" placeholder="Write your question here..."
+          class="h-10 flex-1 rounded-lg border border-gray-100 px-3 text-xs text-gray-900 placeholder-gray-400 focus:border-[1.5px] focus:border-primary focus:outline-none" />
+        <button type="submit"
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary text-navy hover:bg-primary-hover"
+          aria-label="Send question"></button>
+      </form>
+      <p class="mt-2 text-[11px] text-gray-400">Please don't enter any confidential/personal information.</p>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+
+</html>
