@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #152a4a;
+  --color-primary: #f7bf30;
+  --color-primary-hover: #d69c00;
+}
+
+body { color: #1c1b1b; background: #fff; }
+button, a { cursor: pointer; }
+:focus-visible { outline: 3px solid #d69c00; outline-offset: 3px; }

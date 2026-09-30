@@ -7,3 +7,12 @@ Thumbs.db
 
 #codegraph
 .codegraph
+
+# TypeScript application output and local database
+node_modules/
+web/.next/
+web/tsconfig.tsbuildinfo
+api/dist/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
