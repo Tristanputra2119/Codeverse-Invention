@@ -12,7 +12,7 @@ let baseUrl: string;
 let cookie = '';
 
 before(async () => {
-  const app = createApp(join(directory, 'test.sqlite'));
+  const app = await createApp(join(directory, 'test.sqlite'));
   server = app.listen(0);
   await new Promise<void>((resolve) => server.once('listening', resolve));
   const address = server.address();
@@ -70,6 +70,15 @@ test('catalog has database-backed course and bootcamp detail', async () => {
   assert(bootcamps.some((bootcamp: { id: string }) => bootcamp.id === 'bootcamp-literasi-digital'));
   assert(bootcamps.every((bootcamp: { startDate: string }) => bootcamp.startDate === 'Jadwal menyusul'));
   assert.equal((await request('/bootcamps/unknown')).status, 404);
+});
+
+test('course lessons provide a practical explanation and exercise with internet cover images', async () => {
+  const detail = await (await request('/courses/modern-javascript')).json();
+  assert.match(detail.image, /^https:\/\/images\.unsplash\.com\//);
+  assert.match(detail.fullDescription, /Proyek akhir:/);
+  assert.match(detail.lessons[0].content, /Tujuan belajar:/);
+  assert.match(detail.lessons[0].content, /Latihan:/);
+  assert(detail.lessons[0].content.length > 300);
 });
 
 test('enrollment and lesson progress belong to the signed-in learner', async () => {

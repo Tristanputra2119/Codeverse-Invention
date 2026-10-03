@@ -8,7 +8,7 @@ export interface Course {
   fullDescription: string;
   lessonCount: number;
 }
-export interface Lesson { id: number; courseId: string; title: string; duration: string; position: number }
+export interface Lesson { id: number; courseId: string; title: string; duration: string; position: number; content: string }
 export interface CourseDetail extends Course { lessons: Lesson[] }
 export interface Bootcamp {
   id: string;
