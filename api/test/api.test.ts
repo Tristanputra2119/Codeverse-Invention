@@ -42,7 +42,7 @@ test('registration, login, session, and logout protect user data', async () => {
   assert.equal(registered.status, 201);
   cookie = registered.headers.get('set-cookie')?.split(';')[0] ?? '';
   assert(cookie.startsWith('eduverse_session='));
-  assert.deepEqual(await registered.json(), { id: 1, name: 'Nadia', email: 'nadia@example.com' });
+  assert.deepEqual(await registered.json(), { id: 1, name: 'Nadia', email: 'nadia@example.com', role: 'learner' });
 
   const duplicate = await request('/auth/register', { method: 'POST', body: JSON.stringify({ name: 'Other', email: 'nadia@example.com', password: 'long-password' }) });
   assert.equal(duplicate.status, 409);

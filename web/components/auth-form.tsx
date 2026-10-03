@@ -6,7 +6,8 @@ import { useState, type FormEvent } from 'react';
 export function AuthForm() {
   const router = useRouter();
   const search = useSearchParams();
-  const [mode, setMode] = useState<'register' | 'login'>('register');
+  const adminLogin = search.get('returnTo') === '/admin';
+  const [mode, setMode] = useState<'register' | 'login'>(adminLogin ? 'login' : 'register');
   const [error, setError] = useState('');
   const [busy, setBusy] = useState(false);
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -19,10 +20,10 @@ export function AuthForm() {
     if (mode === 'register' && password !== form.get('confirm')) { setError('Konfirmasi kata sandi tidak sama.'); setBusy(false); return; }
     try {
       const response = await fetch(`/api/auth/${mode}`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ name, email, password }) });
-      const result = await response.json() as { error?: string };
+      const result = await response.json() as { error?: string; role?: 'learner' | 'admin' };
       if (!response.ok) throw new Error(result.error ?? 'Gagal masuk.');
       const returnTo = search.get('returnTo');
-      router.push(returnTo?.startsWith('/') && !returnTo.startsWith('//') ? returnTo : '/dashboard');
+      router.push(returnTo?.startsWith('/') && !returnTo.startsWith('//') ? returnTo : result.role === 'admin' ? '/admin' : '/dashboard');
       router.refresh();
     } catch (cause) { setError(cause instanceof Error ? cause.message : 'Terjadi kesalahan.'); }
     finally { setBusy(false); }

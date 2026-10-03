@@ -51,6 +51,24 @@ Seed membuat/memperbarui schema dan katalog dengan mempertahankan ID pelajaran s
 
 Untuk SQLite lokal, kosongkan `TURSO_DATABASE_URL` dan `TURSO_AUTH_TOKEN`; opsional atur `DATABASE_PATH`. Jangan gunakan akun demo untuk data pribadi.
 
+## Admin, halaman status, dan maintenance
+
+Setiap pendaftaran publik mendapat role `learner`. Untuk memberikan role admin pada akun yang sudah terdaftar, jalankan dari mesin backend yang memiliki akses database:
+
+```bash
+npm run admin:promote --workspace api -- email-admin@contoh.com
+```
+
+Masuk dengan akun tersebut dan buka `/admin`. Panel menyimpan status maintenance serta pesan peserta di database. Saat aktif, halaman belajar dan API peserta mengembalikan `503` dengan `Retry-After: 300`; admin tetap dapat mengakses situs dan menonaktifkannya. Login, logout, pemeriksaan sesi, dan status situs tetap tersedia. Tidak ada kata sandi admin bawaan atau pemberian role melalui form pendaftaran. Perubahan berlaku pada permintaan berikutnya; halaman yang sudah terbuka tidak ditutup otomatis.
+
+URL tidak dikenal dan kelas/bootcamp yang tidak ada memakai halaman 404. Error render ditangani oleh `error.tsx`, termasuk tombol mencoba ulang; `global-error.tsx` menangani kegagalan layout. `/500` menampilkan halaman gangguan server. `/403` tersedia sebagai pratinjau; penolakan akses `/admin` mengembalikan status HTTP 403. `/maintenance` menampilkan halaman pemeliharaan dengan status HTTP 503. Gangguan koneksi API menampilkan `/503` dengan status 503 dan tombol mencoba ulang. `/coming-soon` menampilkan informasi fitur yang sedang disiapkan.
+
+## Deploy frontend ke Vercel
+
+Pada Project Settings Vercel, atur **Root Directory** ke `web` dan aktifkan penyertaan file di luar Root Directory agar lockfile workspace di root tersedia. `web/vercel.json` menetapkan framework Next.js, perintah build `npm run build`, dan output `.next`, sehingga Vercel tidak mencari folder output `public`. Install memakai deteksi npm workspace bawaan Vercel. Root Directory harus dipilih di Project Settings; pengaturan tersebut tidak tersedia dalam `vercel.json`.
+
+Set environment `API_URL` pada proyek frontend ke URL HTTPS backend Express yang sudah dijalankan. Backend tidak otomatis dijalankan oleh deployment frontend ini. Jangan gunakan `localhost:4000` pada deployment Vercel. Konfigurasi Turso dan token tetap di backend. Setelah konfigurasi berubah, lakukan deployment ulang.
+
 ## Batas demo
 
 - Pendaftaran bootcamp adalah simulasi yang tersimpan di database. Tidak ada transaksi, email, atau akses bootcamp berbayar.

@@ -1,4 +1,3 @@
-import Link from 'next/link';
-import { Page } from '@/components/site';
+import { HomeLink, StatusPage } from '@/components/status-page';
 
-export default function ComingSoonPage() { return <Page title="Segera Hadir" description="Fitur ini sedang disiapkan."><Link href="/" className="rounded-lg bg-primary px-5 py-3 font-bold text-navy">Kembali ke Beranda</Link></Page>; }
+export default function ComingSoonPage() { return <StatusPage code="Segera Hadir" title="Hal baru sedang disiapkan" description="Kami sedang menyiapkan fitur ini untuk mendukung perjalanan belajarmu. Jelajahi kelas yang sudah tersedia sambil menunggu."><HomeLink /></StatusPage>; }

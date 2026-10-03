@@ -2,7 +2,8 @@ import { createClient, type Config, type InValue, type Row } from '@libsql/clien
 import { randomBytes, scryptSync, timingSafeEqual, createHash } from 'node:crypto';
 import { courses, bootcamps } from './seed.js';
 
-export interface User { id: number; name: string; email: string }
+export interface User { id: number; name: string; email: string; role: 'learner' | 'admin' }
+export interface Maintenance { enabled: boolean; message: string }
 export interface Course { id: string; category: string; title: string; image: string; duration: string; description: string; fullDescription: string; lessonCount: number }
 export interface Lesson { id: number; courseId: string; title: string; duration: string; position: number; content: string }
 export interface Bootcamp { id: string; category: string; title: string; image: string; startDate: string; duration: string; groupSize: string; price: number; originalPrice: number; description: string; fullDescription: string; mentorName: string; mentorRole: string; schedule: { title: string; duration: string }[] }
@@ -31,6 +32,14 @@ export async function openDatabase(config: string | Config) {
   if (!columns.some((column) => column.name === 'content')) {
     await run("ALTER TABLE lessons ADD COLUMN content TEXT NOT NULL DEFAULT ''");
   }
+  const userColumns = await rows<{ name: string }>('PRAGMA table_info(users)');
+  if (!userColumns.some((column) => column.name === 'role')) {
+    await run("ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'learner' CHECK(role IN ('learner', 'admin'))");
+  }
+  await db.executeMultiple(`
+    CREATE TABLE IF NOT EXISTS site_settings (id INTEGER PRIMARY KEY CHECK(id = 1), maintenance_enabled INTEGER NOT NULL DEFAULT 0 CHECK(maintenance_enabled IN (0, 1)), maintenance_message TEXT NOT NULL);
+    INSERT OR IGNORE INTO site_settings VALUES (1, 0, 'Kami sedang meningkatkan layanan. Silakan kembali beberapa saat lagi.');
+  `);
 
   async function seedCatalog(refresh = false) {
     const statements: { sql: string; args: InValue[] }[] = [];
@@ -54,26 +63,38 @@ export async function openDatabase(config: string | Config) {
   return {
     close: () => db.close(),
     seedCatalog,
+    async maintenance(): Promise<Maintenance> {
+      const row = await first<{ enabled: number; message: string }>('SELECT maintenance_enabled AS enabled, maintenance_message AS message FROM site_settings WHERE id = 1');
+      if (!row) throw new Error('Pengaturan situs tidak tersedia.');
+      return { enabled: row.enabled === 1, message: row.message };
+    },
+    async setMaintenance(value: Maintenance) {
+      await run('UPDATE site_settings SET maintenance_enabled = ?, maintenance_message = ? WHERE id = 1', value.enabled ? 1 : 0, value.message);
+    },
+    async promoteAdmin(email: string) {
+      const result = await run("UPDATE users SET role = 'admin' WHERE email = ?", email.trim().toLowerCase());
+      return result.rowsAffected > 0;
+    },
     async register(name: string, email: string, password: string): Promise<User | null> {
       const salt = randomBytes(16).toString('hex');
       const hash = scryptSync(password, salt, 64).toString('hex');
       try {
         const result = await run('INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)', name, email.toLowerCase(), `${salt}:${hash}`);
-        return { id: Number(result.lastInsertRowid), name, email: email.toLowerCase() };
+        return { id: Number(result.lastInsertRowid), name, email: email.toLowerCase(), role: 'learner' };
       } catch (error) {
         if (error instanceof Error && error.message.includes('UNIQUE constraint failed')) return null;
         throw error;
       }
     },
     async login(email: string, password: string): Promise<User | null> {
-      const row = await first('SELECT id, name, email, password_hash FROM users WHERE email = ?', email.toLowerCase()) as (User & { password_hash: string }) | undefined;
+      const row = await first('SELECT id, name, email, role, password_hash FROM users WHERE email = ?', email.toLowerCase()) as (User & { password_hash: string }) | undefined;
       if (!row) return null;
       const [salt, storedHash] = row.password_hash.split(':');
       if (!salt || !storedHash) return null;
       const given = scryptSync(password, salt, 64);
       const expected = Buffer.from(storedHash, 'hex');
       if (given.length !== expected.length || !timingSafeEqual(given, expected)) return null;
-      return { id: row.id, name: row.name, email: row.email };
+      return { id: row.id, name: row.name, email: row.email, role: row.role };
     },
     async createSession(userId: number): Promise<string> {
       const token = randomBytes(32).toString('hex');
@@ -81,7 +102,7 @@ export async function openDatabase(config: string | Config) {
       return token;
     },
     async userForSession(token: string): Promise<User | null> {
-      return (await first('SELECT u.id, u.name, u.email FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ? AND s.expires_at > ?', hashToken(token), Date.now()) as User | undefined) ?? null;
+      return (await first('SELECT u.id, u.name, u.email, u.role FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token_hash = ? AND s.expires_at > ?', hashToken(token), Date.now()) as User | undefined) ?? null;
     },
     async deleteSession(token: string) { await run('DELETE FROM sessions WHERE token_hash = ?', hashToken(token)); },
     async courses(): Promise<Course[]> {

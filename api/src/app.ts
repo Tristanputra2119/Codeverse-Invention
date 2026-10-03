@@ -26,6 +26,34 @@ export async function createApp(databasePath: string | Config) {
     res.cookie(cookieName, value, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', path: '/', maxAge });
   }
 
+  app.use('/api', (_req, res, next) => { res.setHeader('Cache-Control', 'no-store'); next(); });
+  app.get('/api/site-status', async (_req, res) => res.json(await db.maintenance()));
+  app.use('/api/admin', async (req, res, next) => {
+    const current = await user(req, res);
+    if (!current) return;
+    if (current.role !== 'admin') { res.status(403).json({ error: 'Akses admin diperlukan.' }); return; }
+    next();
+  });
+  app.get('/api/admin/maintenance', async (_req, res) => res.json(await db.maintenance()));
+  app.put('/api/admin/maintenance', async (req, res) => {
+    const { enabled, message } = fields(req.body);
+    if (typeof enabled !== 'boolean' || typeof message !== 'string' || !message.trim() || message.trim().length > 500) {
+      res.status(400).json({ error: 'Status boolean dan pesan 1–500 karakter diperlukan.' }); return;
+    }
+    const value = { enabled, message: message.trim() };
+    await db.setMaintenance(value);
+    res.json(value);
+  });
+  app.use('/api', async (req, res, next) => {
+    if (['/auth/login', '/auth/logout', '/auth/me'].includes(req.path)) { next(); return; }
+    const maintenance = await db.maintenance();
+    if (maintenance.enabled && (await db.userForSession(token(req)))?.role !== 'admin') {
+      res.setHeader('Retry-After', '300');
+      res.status(503).json({ error: maintenance.message, maintenance: true }); return;
+    }
+    next();
+  });
+
   app.post('/api/auth/register', async (req, res) => {
     const { name, email, password } = fields(req.body);
     if (typeof name !== 'string' || !name.trim() || typeof email !== 'string' || !emailPattern.test(email) || typeof password !== 'string' || password.length < 8) {
@@ -75,6 +103,7 @@ export async function createApp(databasePath: string | Config) {
     const result = await db.enrollBootcamp(current.id, bootcampId);
     res.status(result === 'missing' ? 404 : result === 'created' ? 201 : 200).json(result === 'missing' ? { error: 'Bootcamp tidak ditemukan.' } : { bootcampId, status: 'simulated' });
   });
+  app.use('/api', (_req, res) => { res.status(404).json({ error: 'Endpoint tidak ditemukan.' }); });
   app.use((error: Error & { status?: number }, _req: Request, res: Response, _next: express.NextFunction) => {
     if (error.status === 400) { res.status(400).json({ error: 'Format JSON tidak valid.' }); return; }
     console.error(error);
