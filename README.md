@@ -63,11 +63,13 @@ Masuk dengan akun tersebut dan buka `/admin`. Panel menyimpan status maintenance
 
 URL tidak dikenal dan kelas/bootcamp yang tidak ada memakai halaman 404. Error render ditangani oleh `error.tsx`, termasuk tombol mencoba ulang; `global-error.tsx` menangani kegagalan layout. `/500` menampilkan halaman gangguan server. `/403` tersedia sebagai pratinjau; penolakan akses `/admin` mengembalikan status HTTP 403. `/maintenance` menampilkan halaman pemeliharaan dengan status HTTP 503. Gangguan koneksi API menampilkan `/503` dengan status 503 dan tombol mencoba ulang. `/coming-soon` menampilkan informasi fitur yang sedang disiapkan.
 
-## Deploy frontend ke Vercel
+## Deploy frontend dan backend ke Vercel
 
-Pada Project Settings Vercel, atur **Root Directory** ke `web` dan aktifkan penyertaan file di luar Root Directory agar lockfile workspace di root tersedia. `web/vercel.json` menetapkan framework Next.js, perintah build `npm run build`, dan output `.next`, sehingga Vercel tidak mencari folder output `public`. Install memakai deteksi npm workspace bawaan Vercel. Root Directory harus dipilih di Project Settings; pengaturan tersebut tidak tersedia dalam `vercel.json`.
+Gunakan satu proyek Vercel dengan **Root Directory** di root repositori (`.`). `vercel.json` mendefinisikan dua Vercel Services: Next.js dari `web/` dan Express dari `api/`. Routing `/api/*` menuju Express; halaman dan aset menuju Next.js. Keduanya dibangun dan dirilis bersama pada domain yang sama. Pengaturan build, output, dan framework pada Project Settings sebaiknya memakai deteksi otomatis karena masing-masing service memiliki konfigurasi sendiri.
 
-Set environment `API_URL` pada proyek frontend ke URL HTTPS backend Express yang sudah dijalankan. Backend tidak otomatis dijalankan oleh deployment frontend ini. Jangan gunakan `localhost:4000` pada deployment Vercel. Konfigurasi Turso dan token tetap di backend. Setelah konfigurasi berubah, lakukan deployment ulang.
+Isi `TURSO_DATABASE_URL` dan `TURSO_AUTH_TOKEN` pada environment Production/Preview proyek tersebut. Backend dijalankan dari `api/src/index.ts`, tanpa membuka listener sendiri. Server Components mendapat `API_URL` otomatis dari service binding; tidak perlu memasukkan URL backend secara manual. Proxy memeriksa status melalui endpoint API pada domain permintaan yang sama. `PORT` hanya dipakai untuk server lokal. `DEMO_PASSWORD` hanya diperlukan ketika menjalankan seed akun demo; deployment tidak otomatis membuat akun demo atau admin. Setelah environment berubah, deploy ulang.
+
+Untuk pengembangan lokal, `npm run dev` tetap menjalankan Next.js dan Express di port 3000/4000. Database SQLite lokal tersedia untuk pengembangan; Vercel menggunakan Turso agar data tetap tersimpan antar-invokasi. Dokumentasi: https://vercel.com/docs/services.
 
 ## Batas demo
 

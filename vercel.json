@@ -1,0 +1,19 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "services": {
+    "web": {
+      "root": "web",
+      "framework": "nextjs",
+      "buildCommand": "npm run build",
+      "bindings": [{ "type": "service", "service": "api", "format": "url", "env": "API_URL" }]
+    },
+    "api": {
+      "root": "api",
+      "framework": "express"
+    }
+  },
+  "rewrites": [
+    { "source": "/api/:path*", "destination": { "service": "api" } },
+    { "source": "/:path*", "destination": { "service": "web" } }
+  ]
+}

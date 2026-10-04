@@ -4,7 +4,8 @@ import type { Learner, Maintenance } from './lib/types';
 const baseUrl = process.env.API_URL ?? 'http://localhost:4000';
 
 async function currentUser(request: NextRequest): Promise<Learner | null> {
-  const response = await fetch(`${baseUrl}/api/auth/me`, { headers: { cookie: request.headers.get('cookie') ?? '' }, cache: 'no-store', signal: AbortSignal.timeout(5000) });
+  const apiOrigin = process.env.VERCEL ? request.nextUrl.origin : baseUrl;
+  const response = await fetch(`${apiOrigin}/api/auth/me`, { headers: { cookie: request.headers.get('cookie') ?? '' }, cache: 'no-store', signal: AbortSignal.timeout(5000) });
   if (response.status === 401) return null;
   if (!response.ok) throw new Error('Sesi tidak dapat diperiksa.');
   return response.json() as Promise<Learner>;
@@ -22,7 +23,9 @@ export async function proxy(request: NextRequest) {
       return NextResponse.next();
     }
     if (path === '/signup') return NextResponse.next();
-    const response = await fetch(`${baseUrl}/api/site-status`, { cache: 'no-store', signal: AbortSignal.timeout(5000) });
+    // Vercel service bindings are available to functions, but not to proxy.
+    const apiOrigin = process.env.VERCEL ? request.nextUrl.origin : baseUrl;
+    const response = await fetch(`${apiOrigin}/api/site-status`, { headers: { cookie: request.headers.get('cookie') ?? '' }, cache: 'no-store', signal: AbortSignal.timeout(5000) });
     if (!response.ok) throw new Error('Status situs tidak dapat diperiksa.');
     const status = await response.json() as Maintenance;
     if (path === '/maintenance' || (status.enabled && (await currentUser(request))?.role !== 'admin')) {
