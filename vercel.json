@@ -11,7 +11,7 @@
       "root": "api",
       "framework": "express",
       "buildCommand": "npm run build",
-      "entrypoint": "dist/index.js"
+      "entrypoint": "index.js"
     }
   },
   "rewrites": [
