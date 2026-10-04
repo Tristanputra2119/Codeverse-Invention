@@ -11,6 +11,7 @@
       "root": "api",
       "framework": "express",
       "buildCommand": "npm run build",
+      "outputDirectory": ".",
       "entrypoint": "index.mjs"
     }
   },
